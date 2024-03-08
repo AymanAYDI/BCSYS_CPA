@@ -1,0 +1,39 @@
+{
+  "id": "8b5ff558-23b1-498a-9a8d-5243ad98b107",
+  "name": "CPA",
+  "publisher": "BCSYS",
+  "version": "23.0.0.0",
+  "brief": "CPA",
+  "description": "CPA",
+  "privacyStatement": "https://www.bcsys.fr/",
+  "EULA": "https://www.bcsys.fr/",
+  "help": "https://www.bcsys.fr/",
+  "url": "https://www.bcsys.fr/",
+  "logo": "./resource/logo/CPA.jpg",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "23.0.0.0",
+  "idRanges": [
+    {
+      "from": 50000,
+      "to": 99999
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "12.0",
+  "contextSensitiveHelpUrl": "https://www.bcsys.fr/",
+  "features": [
+    "NoImplicitWith",
+    "TranslationFile"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR"
+  ],
+  "target": "Cloud"
+}
