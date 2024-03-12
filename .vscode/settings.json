@@ -17,6 +17,7 @@
     "CRS.FileNamePattern": "<ObjectTypeShort><ObjectId>.<ObjectNameShort>.al",
     "CRS.FileNamePatternExtensions": "<ObjectTypeShort><BaseId>-Ext<ObjectId>.<ObjectNameShort>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectTypeShort>Cust<BaseId>.<ObjectNameShort>.al",
+    "CRS.ExtensionObjectNamePattern": "<BaseName>",
     "CRS.OnSaveAlFileAction": "Rename",
     "CRS.RemovePrefixFromFilename": true,
     "CRS.RemoveUnderscoreFromFilename": true,
