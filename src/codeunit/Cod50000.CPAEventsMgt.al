@@ -41,7 +41,6 @@ codeunit 50000 "CPA Events Mgt."
             PurchHeader."Assigned User ID" := CopyStr(USERID, 1, MaxStrLen(PurchHeader."Assigned User ID"));
     end;
 
-
     /* TODO:le code spécifique n'a pas été migré avoir la nouvelle fonction RenumberDocNoOnLines
     [EventSubscriber(ObjectType::Table, Database::"Gen. Journal Line", 'OnBeforeRenumberDocNoOnLines', '', false, false)]
      local procedure OnBeforeRenumberDocNoOnLinesGenJournalLine(var DocNo: Code[20]; var GenJnlLine2: Record "Gen. Journal Line"; var IsHandled: Boolean)
@@ -111,4 +110,106 @@ codeunit 50000 "CPA Events Mgt."
              Error(WrongJobQueueStatus);
      end;
      */
+
+    // Codeunit 90
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", OnAfterSetPostingFlags, '', false, false)]
+    local procedure OnAfterSetPostingFlagsPurchPost(var PurchHeader: Record "Purchase Header")
+    begin
+        if PurchHeader."Document Type" = PurchHeader."Document Type"::Order then
+            PurchHeader.TESTFIELD(Status, PurchHeader.Status::Released);
+    end;
+
+    // Codeunit 415
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Purchase Document", OnBeforePerformManualCheckAndRelease, '', false, false)]
+    local procedure OnBeforePerformManualCheckAndReleaseReleasePurchaseDocument(var PurchHeader: Record "Purchase Header"; PreviewMode: Boolean; var IsHandled: Boolean)
+    var
+        recUser_L: Record "User Setup";
+        CduLCPAFunctionMgt: Codeunit "CPA Function Mgt";
+        AppManagement_l: Codeunit "Approvals Mgmt.";
+        PrepaymentMgt: Codeunit "Prepayment Mgt.";
+        AppAmount_l: Decimal;
+        AppAmountLCY_l: Decimal;
+        Text005: Label 'There are unpaid prepayment invoices that are related to the document of type %1 with the number %2.';
+        Text001_l: Label 'Montant HT supérieur au seuil !';
+    begin
+        IsHandled := true;
+        if PurchHeader."Document Type" = PurchHeader."Document Type"::Order then begin
+            AppManagement_l.CalcPurchaseDocAmount(PurchHeader, AppAmount_l, AppAmountLCY_l);
+            if (recUser_L.GET(USERID)) and (recUser_L."Limit Purchase" >= AppAmount_l) then
+                CODEUNIT.RUN(CODEUNIT::"Release Purchase Document", PurchHeader)
+            else
+                MESSAGE(Text001_l);
+            exit;
+        end;
+        if (PurchHeader."Document Type" = PurchHeader."Document Type"::Order) and PrepaymentMgt.TestPurchasePayment(PurchHeader) then begin
+            if PurchHeader.TestStatusIsNotPendingPrepayment() then begin
+                PurchHeader.Status := PurchHeader.Status::"Pending Prepayment";
+                PurchHeader.Modify();
+                Commit();
+            end;
+            Error(Text005, PurchHeader."Document Type", PurchHeader."No.");
+        end;
+
+        CduLCPAFunctionMgt.CheckPurchaseHeaderPendingApproval(PurchHeader);
+
+        CODEUNIT.Run(CODEUNIT::"Release Purchase Document", PurchHeader);
+    end;
+
+    // Codeunit 5606
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"FA Check Consistency", OnBeforeCreateAcquisitionCostError, '', false, false)]
+    local procedure OnBeforeCreateAcquisitionCostErrorFACheckConsistency(FAJournalLine: Record "FA Journal Line"; var FALedgerEntry2: Record "FA Ledger Entry"; var IsHandled: Boolean)
+    var
+        CduLCPAFunctionMgt: Codeunit "CPA Function Mgt";
+        Text000: label 'The first entry must be an %2 for %1.', Comment = 'FRA="La première écriture doit être %2 pour %1."';
+        Text5000: label 'The first entry must be an %2 for %1.', Comment = 'FRA="La première écriture devrait  être %2 pour %1., validez vous "';
+    begin
+        IsHandled := true;
+        FAJournalLine."FA Posting Type" := FAJournalLine."FA Posting Type"::"Acquisition Cost";
+        if not CONFIRM(Text5000, false, CduLCPAFunctionMgt.FAName(), CduLCPAFunctionMgt.FAName(), FAJournalLine."FA Posting Type")
+          then
+            ERROR(Text000, CduLCPAFunctionMgt.FAName(), FAJournalLine."FA Posting Type");
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"FA Check Consistency", OnBeforeCreatePostingTypeError, '', false, false)]
+    local procedure OnBeforeCreatePostingTypeErrorFACheckConsistency(FAJnlLine: Record "FA Journal Line"; FALedgEntry2: Record "FA Ledger Entry"; DeprBook: Record "Depreciation Book"; var IsHandled: Boolean; NewAmount: Decimal)
+    var
+        CduLCPAFunctionMgt: Codeunit "CPA Function Mgt";
+        AccumText: Text[30];
+        Text003: Label 'Accumulated';
+        Text5004: Label '%2%3 must not be positive on %4 for %1.', Comment = 'FRA="%2%3 devrait être positif sur %4 pour %1., validez vous"';
+        Text004: label '%2%3 must not be positive on %4 for %1.', Comment = 'FRA="%2%3 doit être positif sur %4 pour %1."';
+        Text5005: label '%2%3 must not be negative on %4 for %1.', Comment = 'FRA="%2%3 devrait  être négatif sur %4 pour %1., validez vous"';
+        Text005: label '%2%3 must not be negative on %4 for %1.', Comment = 'FRA="%2%3 doit être négatif sur %4 pour %1."';
+
+    begin
+        IsHandled := true;
+        FAJnlLine."FA Posting Type" := "FA Journal Line FA Posting Type".FromInteger(FALedgEntry2.ConvertPostingType());
+        if FAJnlLine."FA Posting Type" = FAJnlLine."FA Posting Type"::Depreciation then
+            AccumText := STRSUBSTNO('%1 %2', Text003, '');
+        if NewAmount > 0 then
+            if not CONFIRM(Text5004, false, CduLCPAFunctionMgt.FAName(), AccumText, FAJnlLine."FA Posting Type", FALedgEntry2."FA Posting Date")
+            then
+                ERROR(Text004, CduLCPAFunctionMgt.FAName(), AccumText, FAJnlLine."FA Posting Type", FALedgEntry2."FA Posting Date");
+
+        if NewAmount < 0 then
+            if not CONFIRM(Text5005, false, CduLCPAFunctionMgt.FAName(), AccumText, FAJnlLine."FA Posting Type", FALedgEntry2."FA Posting Date")
+            then
+                ERROR(Text005, CduLCPAFunctionMgt.FAName(), AccumText, FAJnlLine."FA Posting Type", FALedgEntry2."FA Posting Date");
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"FA Check Consistency", OnBeforeCreateBookValueError, '', false, false)]
+    local procedure OnBeforeCreateBookValueErrorFACheckConsistency(FALedgerEntry2: Record "FA Ledger Entry"; BookValue: Decimal; SalvageValue: Decimal; var IsHandled: Boolean)
+    var
+        FAJnlLine: Record "FA Journal Line";
+        FADeprBook: Record "FA Depreciation Book";
+        CduLCPAFunctionMgt: Codeunit "CPA Function Mgt";
+        Text5006: label '%2 must not be negative or less than %3 on %4 for %1.', Comment = 'FRA="%2 ne devrait pas être négatif ou inférieur à %3 sur %4 dans %1. , validez vous "';
+        Text006: Label '%2 must not be negative or less than %3 on %4 for %1.';
+    begin
+        IsHandled := true;
+
+        if not CONFIRM(Text5006, false, CduLCPAFunctionMgt.FAName(), FADeprBook.FIELDCAPTION("Book Value"), FAJnlLine."FA Posting Type", FALedgerEntry2."FA Posting Date")
+        then
+            ERROR(Text006, CduLCPAFunctionMgt.FAName(), FADeprBook.FIELDCAPTION("Book Value"), FAJnlLine."FA Posting Type", FALedgerEntry2."FA Posting Date");
+    end;
 }
