@@ -6,9 +6,9 @@ using System.IO;
 report 50007 "Etat des amort. caducité"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './Etatdesamortcaducité.rdl';
+    RDLCLayout = './src/report/rdl/Etatdesamortcaducité.rdl';
     Caption = 'Etat des amortissements de caducité', Comment = 'FRA="Etat des amortissements de caducité"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -366,8 +366,6 @@ report 50007 "Etat des amort. caducité"
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 
     local procedure MakeExcelDataHeader()

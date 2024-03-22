@@ -6,9 +6,9 @@ using System.IO;
 report 50008 "Etat des provisions renouvel"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './Etatdesprovisionsrenouvel.rdl';
+    RDLCLayout = './src/report/rdl/Etatdesprovisionsrenouvel.rdl';
     Caption = 'Etat des provisions pour renouvellement', Comment = 'FRA="Etat des provisions pour renouvellement"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -347,8 +347,6 @@ report 50008 "Etat des provisions renouvel"
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 
     local procedure MakeExcelDataHeader()
@@ -396,7 +394,6 @@ report 50008 "Etat des provisions renouvel"
         TempExcelBuf.AddColumn('', false, '', true, false, false, '', 0);
         TempExcelBuf.AddColumn(EnteteInt[2], false, '', true, false, false, '', 0);
         TempExcelBuf.AddColumn('', false, '', true, false, false, '', 0);
-        ;
 
         TempExcelBuf.AddColumn('', false, '', true, false, false, '', 0);
         TempExcelBuf.AddColumn('', false, '', true, false, false, '', 0);

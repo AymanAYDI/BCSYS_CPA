@@ -6,9 +6,9 @@ using System.IO;
 report 50003 "Synt. Biens NR Concedant"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './SyntBiensNRConcedant.rdl';
+    RDLCLayout = './src/report/rdl/SyntBiensNRConcedant.rdl';
     Caption = 'Synthèse des biens non renouvelables apportés par le concedant', Comment = 'FRA="Synthèse des biens non renouvelables apportés par le concedant"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -421,7 +421,5 @@ report 50003 "Synt. Biens NR Concedant"
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 }

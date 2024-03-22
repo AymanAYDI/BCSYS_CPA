@@ -6,9 +6,9 @@ using System.IO;
 report 50010 "Etat des amortissements"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './Etatdesamortissements.rdl';
+    RDLCLayout = './src/report/rdl/Etatdesamortissements.rdl';
     Caption = 'Etat des amortissements', Comment = 'FRA="Etat des amortissements"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -330,8 +330,6 @@ report 50010 "Etat des amortissements"
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 
     local procedure MakeExcelDataHeader()

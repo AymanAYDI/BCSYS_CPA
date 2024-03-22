@@ -5,14 +5,14 @@ enum 50000 "Type Equipement"
 
     value(0; " ")
     {
-        Caption = ' ', Locked = true;
+        Caption = ' ', Locked = true, Comment = 'FRA="''"';
     }
     value(1; CA)
     {
-        Caption = 'CA';
+        Caption = 'CA', Comment = 'FRA="CA"';
     }
     value(2; BS)
     {
-        Caption = 'BS';
+        Caption = 'BS', Comment = 'FRA="BS"';
     }
 }

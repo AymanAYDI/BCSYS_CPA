@@ -1,7 +1,7 @@
 codeunit 50001 Idsp
 {
     var
-        BookType: enum "Book Code Type";
+        BookType: enum Type;
         FAPostingType: Enum FAPostingType;
         Last: Enum Last;
         FAPostingCategory: Enum FAPostingCategory;
@@ -221,12 +221,12 @@ codeunit 50001 Idsp
         exit(Calculate(FANo, BookType, FAPostingType, DateSelect, FromDate, ToDate, Last, FAPostingCategory));
     end;
 
-    procedure Calculate(var LFANo: Code[20]; var LBookType: enum "Book Code Type"; var LFAPostingType: Enum FAPostingType; var LDateSelect: Enum DateSelect; var LFromDate: Date; var LToDate: Date; var Llast: Enum Last; var LFAPostingCategory: Enum FAPostingCategory) LAmount: Decimal
+    procedure Calculate(var LFANo: Code[20]; var LBookType: enum Type; var LFAPostingType: Enum FAPostingType; var LDateSelect: Enum DateSelect; var LFromDate: Date; var LToDate: Date; var Llast: Enum Last; var LFAPostingCategory: Enum FAPostingCategory) LAmount: Decimal
     var
-        FALedgerEntry: Record 5601;
-        DepreciationBook: Record 5611;
-        FixedAsset: Record 5600;
-        FASetup: Record 5603;
+        FALedgerEntry: Record "FA Ledger Entry";
+        DepreciationBook: Record "Depreciation Book";
+        FixedAsset: Record "Fixed Asset";
+        FASetup: Record "FA Setup";
     begin
         FASetup.GET();
         LAmount := 0;

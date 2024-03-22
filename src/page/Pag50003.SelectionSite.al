@@ -22,7 +22,7 @@ page 50003 "Selection Site"
 
                 trigger OnValidate()
                 begin
-                    AffNumDeb := NOT CopieNum;
+                    AffNumDeb := not CopieNum;
                 end;
             }
             field(NumDeb; NumDeb)
@@ -34,15 +34,10 @@ page 50003 "Selection Site"
             }
         }
     }
-
-    actions
-    {
-    }
-
     trigger OnOpenPage()
     begin
-        AffCopieNum := FALSE;
-        AffNumDeb := TRUE;
+        AffCopieNum := false;
+        AffNumDeb := true;
     end;
 
     var
@@ -55,9 +50,9 @@ page 50003 "Selection Site"
     procedure GetParam(var pSite: Code[20]; var pNumDeb: Integer)
     begin
         pSite := Site;
-        IF CopieNum = TRUE THEN
+        if CopieNum = true then
             pNumDeb := -1
-        ELSE
+        else
             pNumDeb := NumDeb;
     end;
 }

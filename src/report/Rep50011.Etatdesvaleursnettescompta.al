@@ -6,9 +6,9 @@ using System.IO;
 report 50011 "Etat des valeurs nettes compta"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './Etatdesvaleursnettescompta.rdl';
+    RDLCLayout = './src/report/rdl/Etatdesvaleursnettescompta.rdl';
     Caption = 'Etat des valeurs nettes compta', Comment = 'FRA="Etat des valeurs nettes comptables"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -323,8 +323,6 @@ report 50011 "Etat des valeurs nettes compta"
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 
     local procedure MakeExcelDataHeader()

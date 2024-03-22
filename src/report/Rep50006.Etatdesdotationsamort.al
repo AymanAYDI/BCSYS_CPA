@@ -6,9 +6,9 @@ using System.IO;
 report 50006 "Etat des dotations amort."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './Etatdesdotationsamort.rdl';
+    RDLCLayout = './src/report/rdl/Etatdesdotationsamort.rdl';
     Caption = 'Etat des dotations aux amortissements', Comment = 'FRA="Etat des dotations aux amortissements"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -197,7 +197,6 @@ report 50006 "Etat des dotations amort."
             trigger OnPreDataItem()
             begin
 
-
                 if GETFILTER("Acquisition Date") = '' then
                     SETRANGE("Acquisition Date", 0D, Fin);
 
@@ -337,8 +336,6 @@ report 50006 "Etat des dotations amort."
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 
     local procedure MakeExcelDataHeader()

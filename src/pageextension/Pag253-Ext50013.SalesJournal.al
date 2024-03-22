@@ -7,9 +7,6 @@ pageextension 50013 "Sales Journal" extends "Sales Journal" //253
     {
         addafter("Insert Conv. LCY Rndg. Lines")
         {
-            separator(";")
-            {
-            }
             action(ImportSubscribers)
             {
                 Caption = 'Import Subscribers', Comment = 'FRA="Import abonnés"';

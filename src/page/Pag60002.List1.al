@@ -22,14 +22,9 @@ page 60002 List1
             }
             part(""; 60000)
             {
-                SubPageLink = "Location Code" = FIELD("Location Code"),
-                              "Bin Code" = FIELD("Bin Code");
+                SubPageLink = "Location Code" = field("Location Code"),
+                              "Bin Code" = field("Bin Code");
             }
         }
     }
-
-    actions
-    {
-    }
 }
-

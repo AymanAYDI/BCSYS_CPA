@@ -6,9 +6,9 @@ using System.IO;
 report 50009 "Etat des mouvts exercice"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './Etatdesmouvtsexercice.rdl';
+    RDLCLayout = './src/report/rdl/Etatdesmouvtsexercice.rdl';
     Caption = 'Etat des mouvements de l''exercice', Comment = 'FRA="Etat des mouvements de l''exercice"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -325,8 +325,6 @@ report 50009 "Etat des mouvts exercice"
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 
     local procedure MakeExcelDataHeader()

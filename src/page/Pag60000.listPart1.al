@@ -25,8 +25,4 @@ page 60000 listPart1
             }
         }
     }
-
-    actions
-    {
-    }
 }

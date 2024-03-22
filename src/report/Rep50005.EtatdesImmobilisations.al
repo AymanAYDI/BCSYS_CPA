@@ -6,9 +6,9 @@ using System.IO;
 report 50005 "Etat des Immobilisations"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './EtatdesImmobilisations.rdl';
+    RDLCLayout = './src/report/rdl/EtatdesImmobilisations.rdl';
     Caption = 'Etat des Immobilisations', Comment = 'FRA="Etat des Immobilisations"';
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = None;
     ApplicationArea = All;
 
     dataset
@@ -348,8 +348,6 @@ report 50005 "Etat des Immobilisations"
         TempExcelBuf.WriteSheet(Text001, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
         TempExcelBuf.OpenExcel();
-        // TODO: GiveUserControl n'existe pas dans TempExcelBuf
-        // TempExcelBuf.GiveUserControl;
     end;
 
     local procedure MakeExcelDataHeader()
