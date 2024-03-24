@@ -37,22 +37,22 @@ tableextension 50017 "FA Setup" extends "FA Setup" //5603
             NotBlank = true;
             TableRelation = "Depreciation Book";
         }
-        field(50005; "Deprec.Method 1st Asset"; Enum "Deprec.Method 1st Asset")
+        field(50005; "Deprec.Method 1st Asset"; Enum "Deprec Method")
         {
             Caption = 'Deprec.Method 1st Asset', comment = 'FRA="Méthode amort. 1ere immo."';
             InitValue = "Straight-Line";
         }
-        field(50007; "Deprec.Method Renewable"; Enum "Deprec.Methhod Renewable")
+        field(50007; "Deprec.Method Renewable"; Enum "Deprec Method")
         {
             Caption = 'Deprec.Method Renewable', comment = 'FRA="Méthode amort. bien renouvelable"';
             InitValue = "Straight-Line";
         }
-        field(50008; "Deprec.Method Renw.Prov."; Enum "Deprecmethod Renw.Prov.")
+        field(50008; "Deprec.Method Renw.Prov."; Enum "Deprec Method")
         {
             Caption = 'Deprec.Method Renw.Prov.', comment = 'FRA="Méthode amort. provision bien renouvelable"';
             InitValue = "Straight-Line";
         }
-        field(50009; "Deprec.Method Non Renew."; Enum "Deprec.Method Non Renew.")
+        field(50009; "Deprec.Method Non Renew."; Enum "Deprec Method")
         {
             Caption = 'Deprec.Method Non Renew.', comment = 'FRA="Méthode amort. bien non renouvelable"';
             InitValue = "Straight-Line";

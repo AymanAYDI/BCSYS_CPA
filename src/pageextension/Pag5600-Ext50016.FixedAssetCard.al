@@ -94,7 +94,7 @@ pageextension 50016 "Fixed Asset Card" extends "Fixed Asset Card" //5600
         {
             action("Asset links")
             {
-                Caption = 'Asset links';
+                Caption = 'Asset links', Comment = 'FRA=""';
                 Image = Links;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -107,7 +107,7 @@ pageextension 50016 "Fixed Asset Card" extends "Fixed Asset Card" //5600
         {
             action("Génération auto des lois")
             {
-                Caption = 'Génération auto des lois';
+                Caption = 'Génération auto des lois', Comment = 'FRA="Génération auto des lois"';
                 Image = GetEntries;
                 Promoted = true;
                 PromotedCategory = Category4;
@@ -120,7 +120,7 @@ pageextension 50016 "Fixed Asset Card" extends "Fixed Asset Card" //5600
             }
             action("Génération des feuilles d'acquisition")
             {
-                Caption = 'Génération des feuilles d''acquisition';
+                Caption = 'Génération des feuilles d''acquisition', Comment = 'FRA="Génération des feuilles d''acquisition"';
                 Image = GetEntries;
                 Promoted = true;
                 PromotedCategory = Category4;
@@ -131,9 +131,9 @@ pageextension 50016 "Fixed Asset Card" extends "Fixed Asset Card" //5600
                     Rec.AcquisitionGeneration(false);
                 end;
             }
-            action("<Action1000000008>")
+            action("Traitement des Provisions")
             {
-                Caption = 'Traitement des Provisions';
+                Caption = 'Traitement des Provisions', Comment = 'FRA="Traitement des Provisions"';
                 Enabled = ProvisionEnable;
                 Image = GetEntries;
                 Promoted = true;

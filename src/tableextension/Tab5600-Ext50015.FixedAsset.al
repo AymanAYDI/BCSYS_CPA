@@ -89,7 +89,7 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
         {
             Caption = 'Renouvelable', Comment = 'FRA="Renouvelable"';
         }
-        field(50005; "Last Asset In Concession"; Enum "Last Asset In Concession")
+        field(50005; "Last Asset In Concession"; Enum Renewable)
         {
             Caption = 'Dernier bien mis en conce.', Comment = 'FRA="Dernier bien mis en conce."';
         }
@@ -228,7 +228,7 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
                             LFADepreciationBook.INIT();
                             LFADepreciationBook.VALIDATE("FA No.", "No.");
                             LFADepreciationBook.VALIDATE("Depreciation Book Code", FASetup."Non Renew.Deprec. Book Code");
-                            LFADepreciationBook.VALIDATE("Depreciation Method", FASetup."Deprec.Method Non Renew.");
+                            LFADepreciationBook.VALIDATE("Depreciation Method", FASetup."Deprec.Method Renewable");
                             LFADepreciationBook.VALIDATE("Depreciation Starting Date", "Acquisition Date");
                             if not LFADepreciationBook.INSERT() then
                                 ERROR(Text5002, FASetup."Non Renew.Deprec. Book Code");
@@ -260,9 +260,9 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
         DepreciationBook: Record "Depreciation Book";
         FALedgerEntry: Record "FA Ledger Entry";
         FAJournalSetup: Record "FA Journal Setup";
+        FAInsertGLAcc: Codeunit "FA Insert G/L Account";
         FALineNo: Integer;
         ACLineNo: Integer;
-        FAInsertGLAcc: Codeunit "FA Insert G/L Account";
         Valid: Boolean;
         FALineNb: Integer;
         ACLineNb: Integer;
@@ -399,8 +399,7 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
                     ACJnlLine.VALIDATE("Shortcut Dimension 1 Code", "Global Dimension 1 Code");
                     ACJnlLine.VALIDATE("Depreciation Book Code", LFADepreciationBook."Depreciation Book Code");
                     ACJnlLine.INSERT(true);
-                    //TODO: GetBalAcc2 n'existe pas dans la nouvelle version.
-                    /*FAInsertGLAcc.GetBalAcc2(ACJnlLine, ACLineNo);*/
+                    FAInsertGLAcc.GetBalAcc(ACJnlLine, ACLineNo);
                     ACLineNb += 1;
                 end else begin
                     FAJnlLine.INIT();
@@ -464,12 +463,12 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
                     FiscalYearStart := AccountingPeriod."Starting Date";
                     AccountingPeriod.SETFILTER("Starting Date", '>%1', FiscalYearStart);
                     if AccountingPeriod.FINDFIRST() then
-                        FiscalYearEnd := CALCDATE('-1J', AccountingPeriod."Starting Date")
+                        FiscalYearEnd := CALCDATE('<-1J>', AccountingPeriod."Starting Date")
                     else begin
                         AccountingPeriod.SETRANGE("New Fiscal Year", false);
                         AccountingPeriod.SETFILTER("Starting Date", '>=%1', FiscalYearStart);
                         if AccountingPeriod.FINDLAST() then
-                            FiscalYearEnd := CALCDATE('+1M-1J', AccountingPeriod."Starting Date");
+                            FiscalYearEnd := CALCDATE('<+1M-1J>', AccountingPeriod."Starting Date");
                     end;
                 end;
                 if (FiscalYearStart <> 0D) and (FiscalYearEnd <> 0D) and ("Replacement Value Appl. Date" <> 0D) and
@@ -486,7 +485,7 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
         FASetup: Record "FA Setup";
         LFixedAsset: Record "Fixed Asset";
         LFADepreciationBook: Record "FA Depreciation Book";
-        IndexFixedAssets: Report "Index Fixed Assets";
+        IndexFixedAssets: Report "CPA Index Fixed Assets";
         Rate: Decimal;
     begin
         if CheckMakeProvision() then begin
@@ -503,8 +502,7 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
                     if LFADepreciationBook."Acquisition Cost" <> 0 then
                         Rate := ("Replacement Value" - LFADepreciationBook."Acquisition Cost") / LFADepreciationBook."Acquisition Cost";
                     LFixedAsset.SETFILTER("No.", "No.");
-                    // TODO: InitBatch n'existe pas dans la nouvelle version
-                    /*IndexFixedAssets.InitBatch("No.", FASetup."Renw.Prov.Deprec. Book Code", Rate);*/
+                    IndexFixedAssets.InitBatch("No.", FASetup."Renw.Prov.Deprec. Book Code", Rate);
                     IndexFixedAssets.USEREQUESTPAGE(false);
                     IndexFixedAssets.SETTABLEVIEW(LFixedAsset);
                     IndexFixedAssets.RUN();
@@ -564,9 +562,9 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
         FaJnlBatch: Record "FA Journal Batch";
         DepreciationBook: Record "Depreciation Book";
         FAJournalSetup: Record "FA Journal Setup";
+        FAInsertGLAcc: Codeunit "FA Insert G/L Account";
         FALineNo: Integer;
         ACLineNo: Integer;
-        FAInsertGLAcc: Codeunit "FA Insert G/L Account";
         Valid: Boolean;
         FALineNb: Integer;
         ACLineNb: Integer;
@@ -682,8 +680,7 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
                             ACJnlLine.VALIDATE("Shortcut Dimension 1 Code", LCopyRec."Global Dimension 1 Code");
                             ACJnlLine.VALIDATE("Depreciation Book Code", LFADepreciationBook."Depreciation Book Code");
                             ACJnlLine.INSERT(true);
-                            //TODO: GetBalAcc2 n'existe pas dans la nouvelle version.
-                            /*FAInsertGLAcc.GetBalAcc2(ACJnlLine, ACLineNo);*/
+                            FAInsertGLAcc.GetBalAcc(ACJnlLine, ACLineNo);
                             ACLineNb += 1;
                         end else begin
                             FAJnlLine.INIT();
@@ -735,12 +732,12 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
         lDefaultDim: Record "Default Dimension";
         lDefaultDim2: Record "Default Dimension";
         lFA2: Record "Fixed Asset";
+        lFADepreciationBook: Record "FA Depreciation Book";
+        SelectionSite: Page "Selection Site";
         lFANo: Code[20];
         lNumberofCopies: Integer;
-        SelectionSite: Page "Selection Site";
         lNumDeb: Integer;
         MemDate: Date;
-        lFADepreciationBook: Record "FA Depreciation Book";
         DateOK: Boolean;
         MemDateSession: Date;
     begin
