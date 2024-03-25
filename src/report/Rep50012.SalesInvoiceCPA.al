@@ -905,7 +905,7 @@ report 50012 "Sales - Invoice CPA"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := CduLanguage.GetLanguageIdOrDefault("Language Code");
 
                 if RespCenter.GET("Responsibility Center") then begin
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
@@ -1059,7 +1059,7 @@ report 50012 "Sales - Invoice CPA"
         TempPostedAsmLine: Record "Posted Assembly Line" temporary;
         VATClause: Record "VAT Clause";
         SalesInvCountPrinted: Codeunit "Sales Inv.-Printed";
-        Language: Codeunit Language;
+        CduLanguage: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         SegManagement: Codeunit SegManagement;
         Text000: Label 'Salesperson', Comment = 'FRA="Vendeur"';

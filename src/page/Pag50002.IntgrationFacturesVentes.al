@@ -204,7 +204,7 @@ page 50002 "Intégration Factures Ventes"
 
     procedure LoopSheetsName(FileName: Text): Integer
     var
-        NameValueBufferOut: Record "Name/Value Buffer";
+        TempNameValueBufferOut: Record "Name/Value Buffer" temporary;
         SheetName: Text[250];
         SheetsList: Text[250];
         j: Integer;
@@ -212,20 +212,20 @@ page 50002 "Intégration Factures Ventes"
 
         if FileName = '' then
             ERROR(Text001);
-        Clear(NameValueBufferOut);
-        TempExcelBuffer.GetSheetsNameListFromStream(InStream, NameValueBufferOut);
+        TempNameValueBufferOut.DeleteAll();
+        TempExcelBuffer.GetSheetsNameListFromStream(InStream, TempNameValueBufferOut);
 
         Clear(j);
         Clear(i);
-        if not NameValueBufferOut.IsEmpty then
+        if not TempNameValueBufferOut.IsEmpty then
             repeat
-                SheetName := NameValueBufferOut.Value;
-                if (NameValueBufferOut.Value <> '') and (STRLEN(SheetsList) + STRLEN(SheetName) < 250) then begin
+                SheetName := TempNameValueBufferOut.Value;
+                if (TempNameValueBufferOut.Value <> '') and (STRLEN(SheetsList) + STRLEN(SheetName) < 250) then begin
                     j += 1;
                     tabNomFeuille[j] := SheetName;
                 end;
                 i := i + 1;
-            until NameValueBufferOut.Next() = 0;
+            until TempNameValueBufferOut.Next() = 0;
 
         if j = 0 then
             MESSAGE(Text002);

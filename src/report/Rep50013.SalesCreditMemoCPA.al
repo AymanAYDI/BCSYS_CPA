@@ -733,7 +733,7 @@ report 50013 "Sales - Credit Memo CPA"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := CduLanguage.GetLanguageIdOrDefault("Language Code");
 
                 CompanyInfo.GET();
 
@@ -877,7 +877,7 @@ report 50013 "Sales - Credit Memo CPA"
         TempSalesShipmentBuffer: Record "Sales Shipment Buffer" temporary;
         RespCenter: Record "Responsibility Center";
         CurrExchRate: Record "Currency Exchange Rate";
-        Language: Codeunit Language;
+        CduLanguage: Codeunit Language;
         SalesCrMemoCountPrinted: Codeunit "Sales Cr. Memo-Printed";
         FormatAddr: Codeunit "Format Address";
         SegManagement: Codeunit SegManagement;

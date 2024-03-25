@@ -906,7 +906,7 @@ report 50014 "Sales - Invoice CPA Group"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := CduLanguage.GetLanguageIdOrDefault("Language Code");
 
                 if RespCenter.GET("Responsibility Center") then begin
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
@@ -1066,7 +1066,7 @@ report 50014 "Sales - Invoice CPA Group"
         SalesInvCountPrinted: Codeunit "Sales Inv.-Printed";
         FormatAddr: Codeunit "Format Address";
         SegManagement: Codeunit SegManagement;
-        Language: Codeunit Language;
+        CduLanguage: Codeunit Language;
         PostedShipmentDate: Date;
         CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];

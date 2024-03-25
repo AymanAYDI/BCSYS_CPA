@@ -965,7 +965,7 @@ report 50017 "Order Purchase CPA"
                 if "Purchase Header".Status = "Purchase Header".Status::Released then
                     printSign_g := true;
 
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := CduLanguage.GetLanguageID("Language Code");
 
                 CompanyInfo.GET();
                 CompanyInfo."Phone No." := RespCenter."Phone No.";
@@ -1137,7 +1137,7 @@ report 50017 "Order Purchase CPA"
         PurchSetup: Record "Purchases & Payables Setup";
         userSetup_g: Record "User Setup";
         LogoItem_G: Record Item;
-        Language: Codeunit Language;
+        CduLanguage: Codeunit Language;
         PurchCountPrinted: codeunit "Purch.Header-Printed";
         FormatAddr: codeunit "Format Address";
         PurchPost: codeunit "Purch.-Post";
