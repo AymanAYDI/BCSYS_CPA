@@ -852,7 +852,7 @@ tableextension 50015 "Fixed Asset" extends "Fixed Asset" //5600
     var
         Indice: Record Indice;
         Text5000: Label 'Une immo. ne peut etre attachée à elle même', Comment = 'FRA="Une immo. ne peut etre attachée à elle même"';
-        Text5001: Label 'Le type de mise en concession ne doit pas etre Autre ', Comment = 'FRA"Le type de mise en concession ne doit pas etre Autre "';
+        Text5001: Label 'Le type de mise en concession ne doit pas etre Autre ', Comment = 'FRA="Le type de mise en concession ne doit pas etre Autre "';
         Text5002: Label 'La ligne loi amortissement %1 existe déja', Comment = 'FRA="La ligne loi amortissement %1 existe déja"';
         Text5003: Label '%1 ligne(s)  loi amortissement existent déjà ', Comment = 'FRA="%1 ligne(s)  loi amortissement existent déjà "';
         Text5004: Label 'pas de ligne loi amortissement à traiter pour Immobilisation %1', Comment = 'FRA="pas de ligne loi amortissement à traiter pour Immobilisation %1"';

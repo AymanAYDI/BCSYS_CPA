@@ -420,7 +420,7 @@ report 50034 "CPA Draft notice"
                     Caption = 'Options', Comment = 'FRA="Options"';
                     field(NumberOfCopies; CopiesNumber)
                     {
-                        Caption = 'Number of copies', Comment = 'FRA"Nombre de copies"';
+                        Caption = 'Number of copies', Comment = 'FRA="Nombre de copies"';
                         ApplicationArea = All;
                     }
                 }
@@ -469,7 +469,7 @@ report 50034 "CPA Draft notice"
         HeaderText2: Label 'This transfer is related to these invoices :', Comment = 'FRA="Ce virement est lié aux factures suivantes :"';
         OutputNo: Integer;
         Payment_Lines1___No__CaptionLbl: Label 'Draft No.', Comment = 'FRA="N° brouillon"';
-        PaymtHeader__IBAN__CaptionLbl: Label 'IBAN', Comment = '"IBAN"';
+        PaymtHeader__IBAN__CaptionLbl: Label 'IBAN', Comment = 'FRA="IBAN"';
         PaymtHeader__SWIFT_Code__CaptionLbl: Label 'SWIFT Code', Comment = 'FRA="Code SWIFT"';
         CompanyInformation__VAT_Registration_No__CaptionLbl: Label 'VAT Registration No.', Comment = 'FRA="N° identif. intracomm."';
         CompanyInformation__Fax_No__CaptionLbl: Label 'FAX No.', Comment = 'FRA="N° télécopie"';

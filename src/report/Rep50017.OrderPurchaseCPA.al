@@ -1210,7 +1210,7 @@ report 50017 "Order Purchase CPA"
         LineDimCaptionLbl: Label 'Line Dimensions', Comment = 'FRA="Analytique ligne"';
         PaymentDetailsCaptionLbl: Label 'Payment Details', Comment = 'FRA="Détail paiement"';
         VendNoCaptionLbl: Label 'Vendor No.', Comment = 'FRA="N° fournisseur"';
-        ShiptoAddressCaptionLbl: Label 'Ship-to Address', Comment = 'FAR="Adresse destinataire"';
+        ShiptoAddressCaptionLbl: Label 'Ship-to Address', Comment = 'FRA="Adresse destinataire"';
         PrepmtInvBuDescCaptionLbl: Label 'Description', Comment = 'FRA="Désignation"';
         PrepmtInvBufGLAccNoCaptionLbl: Label 'G/L Account No.', Comment = 'FRA="N° compte général"';
         PrepaymentSpecCaptionLbl: Label 'Prepayment Specification', Comment = 'FRA="Spécification acompte"';

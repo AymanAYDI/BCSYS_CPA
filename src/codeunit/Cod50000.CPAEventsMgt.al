@@ -204,7 +204,7 @@ codeunit 50000 "CPA Events Mgt."
         FADeprBook: Record "FA Depreciation Book";
         CduLCPAFunctionMgt: Codeunit "CPA Function Mgt";
         Text5006: label '%2 must not be negative or less than %3 on %4 for %1.', Comment = 'FRA="%2 ne devrait pas être négatif ou inférieur à %3 sur %4 dans %1. , validez vous "';
-        Text006: Label '%2 must not be negative or less than %3 on %4 for %1.';
+        Text006: Label '%2 must not be negative or less than %3 on %4 for %1.', Comment = 'FRA="%2 ne devrait pas être négatif ou inférieur à %3 sur %4 dans %1. , validez vous "';
     begin
         IsHandled := true;
 
