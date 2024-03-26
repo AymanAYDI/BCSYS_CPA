@@ -6,9 +6,9 @@ using System.IO;
 report 50004 "Synt. Biens NR Concessionnaire"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/report/rdl/SyntBiensNRConcessionnaire.rdlc';
+    RDLCLayout = './src/report/rdl/SyntBiensNRConcessionnaire.rdl';
     Caption = 'Synthèse des biens non renouvelables apportés par le concessionnaire', Comment = 'FRA="Synthèse des biens non renouvelables apportés par le concessionnaire"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

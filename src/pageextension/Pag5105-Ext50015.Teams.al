@@ -17,12 +17,15 @@ pageextension 50015 Teams extends Teams //5105
         {
             field("Customer No."; Rec."Customer No.")
             {
+                ApplicationArea = All;
             }
             field("Item No."; Rec."Item No.")
             {
+                ApplicationArea = All;
             }
             field("Type Equipement"; Rec."Type Equipement")
             {
+                ApplicationArea = All;
             }
         }
     }

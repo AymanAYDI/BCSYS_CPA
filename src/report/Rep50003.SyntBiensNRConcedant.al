@@ -8,7 +8,7 @@ report 50003 "Synt. Biens NR Concedant"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/SyntBiensNRConcedant.rdl';
     Caption = 'Synthèse des biens non renouvelables apportés par le concedant', Comment = 'FRA="Synthèse des biens non renouvelables apportés par le concedant"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

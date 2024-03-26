@@ -8,7 +8,7 @@ report 50011 "Etat des valeurs nettes compta"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/Etatdesvaleursnettescompta.rdl';
     Caption = 'Etat des valeurs nettes compta', Comment = 'FRA="Etat des valeurs nettes comptables"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

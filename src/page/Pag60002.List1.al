@@ -5,6 +5,7 @@ page 60002 List1
 {
     PageType = ListPlus;
     SourceTable = "Bin Content";
+    UsageCategory = None;
     ApplicationArea = All;
 
     layout

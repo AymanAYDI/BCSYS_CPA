@@ -8,7 +8,7 @@ report 50008 "Etat des provisions renouvel"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/Etatdesprovisionsrenouvel.rdl';
     Caption = 'Etat des provisions pour renouvellement', Comment = 'FRA="Etat des provisions pour renouvellement"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

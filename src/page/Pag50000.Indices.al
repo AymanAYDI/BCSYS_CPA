@@ -3,6 +3,7 @@ page 50000 Indices
 {
     PageType = List;
     SourceTable = Indice;
+    UsageCategory = None;
     ApplicationArea = All;
 
     layout

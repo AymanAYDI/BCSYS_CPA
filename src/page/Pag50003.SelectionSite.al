@@ -4,6 +4,7 @@ using Microsoft.FixedAssets.Setup;
 page 50003 "Selection Site"
 {
     PageType = StandardDialog;
+    UsageCategory = None;
     ApplicationArea = All;
 
     layout

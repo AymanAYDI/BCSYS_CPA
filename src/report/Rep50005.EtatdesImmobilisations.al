@@ -8,7 +8,7 @@ report 50005 "Etat des Immobilisations"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/EtatdesImmobilisations.rdl';
     Caption = 'Etat des Immobilisations', Comment = 'FRA="Etat des Immobilisations"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

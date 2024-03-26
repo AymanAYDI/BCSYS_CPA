@@ -8,7 +8,7 @@ report 50009 "Etat des mouvts exercice"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/Etatdesmouvtsexercice.rdl';
     Caption = 'Etat des mouvements de l''exercice', Comment = 'FRA="Etat des mouvements de l''exercice"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

@@ -5,6 +5,7 @@ page 60000 listPart1
 {
     PageType = ListPart;
     SourceTable = "Warehouse Entry";
+    UsageCategory = None;
     ApplicationArea = All;
 
     layout

@@ -1079,16 +1079,19 @@ report 50017 "Order Purchase CPA"
                     field(NoofCopies; NoOfCopies)
                     {
                         Caption = 'No. of Copies', Comment = 'FRA="Nombre de copies"';
+                        ApplicationArea = All;
                     }
                     field(prevention_g; prevention_g)
                     {
                         Caption = 'Plan de prévention', comment = 'FRA="Plan de prévention"';
+                        ApplicationArea = All;
                     }
                     field(LogoItem; LogoName_G)
                     {
                         Caption = 'Article CGA', comment = 'FRA="Article CGA"';
                         Editable = false;
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                 }
             }

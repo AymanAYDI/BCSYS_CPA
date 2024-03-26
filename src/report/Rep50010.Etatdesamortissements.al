@@ -8,7 +8,7 @@ report 50010 "Etat des amortissements"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/Etatdesamortissements.rdl';
     Caption = 'Etat des amortissements', Comment = 'FRA="Etat des amortissements"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

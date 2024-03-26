@@ -8,7 +8,7 @@ report 50006 "Etat des dotations amort."
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/Etatdesdotationsamort.rdl';
     Caption = 'Etat des dotations aux amortissements', Comment = 'FRA="Etat des dotations aux amortissements"';
-    UsageCategory = None;
+    UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
 
     dataset

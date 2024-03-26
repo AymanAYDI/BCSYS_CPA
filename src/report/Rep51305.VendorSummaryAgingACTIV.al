@@ -333,18 +333,22 @@ report 51305 "Vendor - Summary Aging ACTIV"
                     {
                         Caption = 'Starting Date', Comment = 'FRA="Date début"';
                         NotBlank = true;
+                        ApplicationArea = All;
                     }
                     field(PeriodLength; PeriodLength)
                     {
                         Caption = 'Period Length', Comment = 'FRA="Base période"';
+                        ApplicationArea = All;
                     }
                     field(PrintAmountsInLCY; PrintAmountsInLCY)
                     {
                         Caption = 'Show Amounts in LCY', Comment = 'FRA="Afficher montants DS"';
+                        ApplicationArea = All;
                     }
                     field(EnAttente; EnAttente)
                     {
                         Caption = 'Not good to pay', Comment = 'FRA="En attente"';
+                        ApplicationArea = All;
                     }
                 }
             }

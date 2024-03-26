@@ -9,14 +9,15 @@ using Microsoft.Sales.Document;
 using Microsoft.Sales.History;
 using Microsoft.CRM.Team;
 using Microsoft.Utilities;
-page 50002 "Intégration Factures Ventes"
+page 50004 "Integration Factures Ventes CA"
 {
+    Caption = 'Integration Factures Ventes CA', Comment = 'FRA="Intégration Factures Ventes Caisse Automatique"';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = List;
     SourceTable = "Intégration facture vente";
     SourceTableTemporary = true;
-    UsageCategory = Administration;
+    UsageCategory = Tasks;
     ApplicationArea = All;
 
     layout
@@ -40,11 +41,11 @@ page 50002 "Intégration Factures Ventes"
                     begin
 
                         if txtFileName <> '' then
-                            UploadIntoStream(Text006, '', '', txtFileName, InStream)
+                            UploadIntoStream(Text006, '', '', txtFileName, Instream)
                         else
                             UploadIntoStream(Text006, '', FilterText, txtFileName, InStream);
 
-                        txtFileName := FileMgt.GetFileName(ServerFileName);
+                        ServerFileName := CopyStr(txtFileName, 1, MaxStrLen(ServerFileName));
                     end;
                 }
             }
@@ -154,21 +155,20 @@ page 50002 "Intégration Factures Ventes"
     }
 
     var
-        TempExcelBuffer: Record "Excel Buffer" temporary;
-        customer: Record Customer;
-        item: Record Item;
-        ledgerSetup: Record "General Ledger Setup";
-        dimValue: Record "Default Dimension";
-        salesHdr: Record "Sales Header";
-        salesLine: Record "Sales Line";
-        salesInvoiceHdr: Record "Sales Invoice Header";
         salesInvoiceLine: Record "Sales Invoice Line";
-        FileMgt: Codeunit "File Management";
-        InStream: InStream;
+        salesInvoiceHdr: Record "Sales Invoice Header";
+        salesLine: Record "Sales Line";
+        salesHdr: Record "Sales Header";
+        dimValue: Record "Default Dimension";
+        ledgerSetup: Record "General Ledger Setup";
+        item: Record Item;
+        customer: Record Customer;
+        TempExcelBuffer: Record "Excel Buffer" temporary;
         txtFileName: Text;
         NomFeuille: Text;
         ServerFileName: Text[250];
         Text001: Label 'Le nom du fichier est vide !', Comment = 'FRA="Le nom du fichier est vide !"';
+        InStream: InStream;
         tabNomFeuille: array[45] of Text;
         nbFeuille: Integer;
         Text002: Label 'Aucune Feuille à traiter sur ce fichier !', Comment = 'FRA="Aucune Feuille à traiter sur ce fichier !"';
@@ -269,14 +269,14 @@ page 50002 "Intégration Factures Ventes"
                         nbErr += 1;
                     end;
                 end else begin
-                    Rec.Erreur := CopyStr(Rec.Erreur + ' Code Client ' + codeClient + ' non trouvé !', 1, MaxStrLen(Rec.Erreur));
+                    Rec.Erreur += ' Code Client ' + codeClient + ' non trouvé !';
                     nbErr += 1;
                 end;
                 codeArticle := Rec.Article;
                 if item.GET(codeArticle) then
                     Rec.Article := item."No."
                 else begin
-                    Rec.Erreur := CopyStr(Rec.Erreur + ' Code Article ' + codeArticle + ' non trouvé !', 1, MaxStrLen(Rec.Erreur));
+                    Rec.Erreur += ' Code Article ' + codeArticle + ' non trouvé !';
                     nbErr += 1;
                 end;
 
@@ -285,7 +285,7 @@ page 50002 "Intégration Factures Ventes"
                 EVALUATE(dYear, COPYSTR(Rec."Fin Période", 26, 4));
                 Rec."Date Facture" := DMY2DATE(dDay, dMonth, dYear);
                 if Rec."Date Facture" = 0D then begin
-                    Rec.Erreur := CopyStr(Rec.Erreur + ' Date facture non trouvé ! ', 1, MaxStrLen(Rec.Erreur));
+                    Rec.Erreur += ' Date facture non trouvé ! ';
                     nbErr += 1;
                 end;
 
@@ -421,14 +421,14 @@ page 50002 "Intégration Factures Ventes"
                         Rec."Type Equipement" := TbTeam_L."Type Equipement";
                     end;
                 end;
-                if (COPYSTR(varCell, 1, 7) = 'ESPECES') and (ColESP = 0) then
-                    ColESP := TempExcelBuffer."Column No." + 2;
-                if (COPYSTR(varCell, 1, 17) = 'CHEQUES BANCAIRES') and (ColCHQ = 0) then
+                if (COPYSTR(varCell, 1, 8) = 'ESPECES') and (ColESP = 0) then
+                    ColESP := TempExcelBuffer."Column No." + 3;
+                if (COPYSTR(varCell, 1, 27) = 'CHEQUES BANCAIRES') and (ColCHQ = 0) then
                     ColCHQ := TempExcelBuffer."Column No." + 2;
-                if (COPYSTR(varCell, 1, 16) = 'CARTES DE CREDIT') and (ColCB = 0) then begin
+                if (COPYSTR(varCell, 1, 17) = 'CARTES DE CREDIT') and (ColCB = 0) then begin
                     ColCB := TempExcelBuffer."Column No." + 3;
                     if Rec."Type Equipement" = Rec."Type Equipement"::CA then
-                        ColCB := TempExcelBuffer."Column No." + 4;
+                        ColCB := TempExcelBuffer."Column No." + 5;
                 end;
                 if (COPYSTR(varCell, 1, 17) = 'CARTES A DECOMPTE') and (ColCD = 0) then
                     ColCD := TempExcelBuffer."Column No.";

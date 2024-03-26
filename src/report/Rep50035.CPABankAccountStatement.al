@@ -316,6 +316,7 @@ report 50035 "CPA Bank Account Statement"
                         Editable = BankStatementVisible;
                         Enabled = BankStatementVisible;
                         Visible = BankStatementVisible;
+                        ApplicationArea = All;
                     }
                 }
             }
