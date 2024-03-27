@@ -239,23 +239,23 @@ report 50007 "Etat des amort. caducité"
         {
             area(content)
             {
-                field(Deb; Deb)
+                field(DebF; Deb)
                 {
                     Caption = 'Date Début Exercice', Comment = 'FRA="Date Début Exercice"';
                     ApplicationArea = All;
                 }
-                field(Fin; Fin)
+                field(FinF; Fin)
                 {
                     Caption = 'Date Début Exercice', Comment = 'FRA="Date Fin Exercice"';
                     ApplicationArea = All;
                 }
-                field(GInConncessionBy; GInConncessionBy)
+                field(GInConncessionByF; GInConncessionBy)
                 {
                     Caption = 'Mise en concession par', Comment = 'FRA="Mise en concession par"';
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(PrintToExcel; PrintToExcel)
+                field(PrintToExcelF; PrintToExcel)
                 {
                     Caption = 'Print to Excel', Comment = 'FRA="Imprimer dans Excel"';
                     ApplicationArea = All;

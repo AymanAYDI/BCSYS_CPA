@@ -812,17 +812,17 @@ report 60000 "Sales - Quote SCH TEST"
                 group(Options)
                 {
                     Caption = 'Options', Comment = 'FRA="Options"';
-                    field(NoOfCopies; NoOfCopies)
+                    field(NoOfCopiesF; NoOfCopies)
                     {
                         Caption = 'No. of Copies', Comment = 'FRA="Nombre de copies"';
                         ApplicationArea = All;
                     }
-                    field(ShowInternalInfo; ShowInternalInfo)
+                    field(ShowInternalInfoF; ShowInternalInfo)
                     {
                         Caption = 'Show Internal Information', Comment = 'FRA="Afficher info. internes"';
                         ApplicationArea = All;
                     }
-                    field(ArchiveDocument; ArchiveDocument)
+                    field(ArchiveDocumentF; ArchiveDocument)
                     {
                         Caption = 'Archive Document', Comment = 'FRA="Archiver document"';
                         ApplicationArea = All;
@@ -833,7 +833,7 @@ report 60000 "Sales - Quote SCH TEST"
                                 LogInteraction := false;
                         end;
                     }
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteractionF; LogInteraction)
                     {
                         Caption = 'Log Interaction', Comment = 'FRA="Journal interaction"';
                         Enabled = LogInteractionEnable;

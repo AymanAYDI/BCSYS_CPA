@@ -992,7 +992,7 @@ report 50012 "Sales - Invoice CPA"
                 group(Options)
                 {
                     Caption = 'Options', Comment = 'FRA="Options"';
-                    field(NoOfCopies; NoOfCopies)
+                    field(NoOfCopiesF; NoOfCopies)
                     {
                         Caption = 'No. of Copies', Comment = 'FRA="Nombre de copies"';
                         ApplicationArea = All;
@@ -1001,15 +1001,9 @@ report 50012 "Sales - Invoice CPA"
             }
         }
 
-        trigger OnInit()
-        begin
-            LogInteractionEnable := true;
-        end;
-
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            LogInteractionEnable := LogInteraction;
         end;
     }
 
@@ -1116,7 +1110,6 @@ report 50012 "Sales - Invoice CPA"
         IncludeShptNo: Boolean;
         GetTotalLineAmount: Decimal;
         GetTotalAmountIncVAT: Decimal;
-        LogInteractionEnable: Boolean;
         DisplayAssemblyInformation: Boolean;
         PhoneNoCaptionLbl: Label 'Phone No.', Comment = 'FRA="N° téléphone"';
         VATRegNoCaptionLbl: Label 'VAT Registration No.', Comment = 'FRA="N° identif. intracomm."';
@@ -1332,12 +1325,12 @@ report 50012 "Sales - Invoice CPA"
         exit(Text004);
     end;
 
-    procedure InitializeRequest(NewNoOfCopies: Integer; NewShowInternalInfo: Boolean; NewLogInteraction: Boolean; IncludeShptNo: Boolean; DisplAsmInfo: Boolean)
+    procedure InitializeRequest(NewNoOfCopies: Integer; NewShowInternalInfo: Boolean; NewLogInteraction: Boolean; IncludeShptNoP: Boolean; DisplAsmInfo: Boolean)
     begin
         NoOfCopies := NewNoOfCopies;
         ShowInternalInfo := NewShowInternalInfo;
         LogInteraction := NewLogInteraction;
-        IncludeShptNo := IncludeShptNo;
+        IncludeShptNoP := IncludeShptNoP;
         DisplayAssemblyInformation := DisplAsmInfo;
     end;
 

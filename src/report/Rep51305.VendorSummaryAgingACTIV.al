@@ -335,17 +335,17 @@ report 51305 "Vendor - Summary Aging ACTIV"
                         NotBlank = true;
                         ApplicationArea = All;
                     }
-                    field(PeriodLength; PeriodLength)
+                    field(PeriodLengthF; PeriodLength)
                     {
                         Caption = 'Period Length', Comment = 'FRA="Base période"';
                         ApplicationArea = All;
                     }
-                    field(PrintAmountsInLCY; PrintAmountsInLCY)
+                    field(PrintAmountsInLCYF; PrintAmountsInLCY)
                     {
                         Caption = 'Show Amounts in LCY', Comment = 'FRA="Afficher montants DS"';
                         ApplicationArea = All;
                     }
-                    field(EnAttente; EnAttente)
+                    field(EnAttenteF; EnAttente)
                     {
                         Caption = 'Not good to pay', Comment = 'FRA="En attente"';
                         ApplicationArea = All;
@@ -373,6 +373,8 @@ report 51305 "Vendor - Summary Aging ACTIV"
     var
         Currency: Record Currency;
         TempCurrency2: Record Currency temporary;
+        PeriodLength: DateFormula;
+
         PrintAmountsInLCY: Boolean;
         VendFilter: Text;
         PeriodStartDate: array[6] of Date;
@@ -381,7 +383,6 @@ report 51305 "Vendor - Summary Aging ACTIV"
         VendBalanceDue: array[5] of Decimal;
         VendBalanceDueLCY: array[5] of Decimal;
         PrintLine: Boolean;
-        PeriodLength: DateFormula;
         i: Integer;
         InVendBalanceDueLCY: array[5] of Decimal;
         InVendBalanceDueLCY2: array[5] of Decimal;

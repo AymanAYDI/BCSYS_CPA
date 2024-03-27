@@ -100,7 +100,7 @@ xmlport 50000 "Import Subscribers"
                         "Gen. Journal Line".VALIDATE("Account No.", G_AccountNo);
                         "Gen. Journal Line".VALIDATE("Bal. Account No.", G_BalAccountNo);
                         "Gen. Journal Line".VALIDATE(Amount, G_DebitAmount);
-                        "Gen. Journal Line".Description := STRSUBSTNO('%1%2%3', "Gen. Journal Line".Description, ' - ', FORMAT(G_PostingDate));
+                        "Gen. Journal Line".Description := CopyStr(STRSUBSTNO('%1%2%3', "Gen. Journal Line".Description, ' - ', FORMAT(G_PostingDate)), 1, MaxStrLen("Gen. Journal Line".Description));
                     end;
                 }
             }
@@ -124,11 +124,11 @@ xmlport 50000 "Import Subscribers"
     end;
 
     var
-        G_PostingDate: Date;
         G_GenJnlTemplate: Record "Gen. Journal Template";
         G_GenJnlBatch: Record "Gen. Journal Batch";
         G_GenJnlLine: Record "Gen. Journal Line";
         G_LineNo: Integer;
+        G_PostingDate: Date;
         G_AccountNo: Code[20];
         G_BalAccountNo: Code[20];
         G_DebitAmount: Decimal;

@@ -21,7 +21,7 @@ page 60002 List1
                 {
                 }
             }
-            part(""; 60000)
+            part(""; listPart1)
             {
                 SubPageLink = "Location Code" = field("Location Code"),
                               "Bin Code" = field("Bin Code");

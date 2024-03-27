@@ -87,39 +87,39 @@ report 50036 "CPA Index Fixed Assets"
                 group(Options)
                 {
                     Caption = 'Options', Comment = 'FRA="Options"';
-                    field(DepreciationBook; DeprBookCode)
+                    field(DepreciationBookF; DeprBookCode)
                     {
                         ApplicationArea = FixedAssets;
                         Caption = 'Depreciation Book', Comment = 'FRA=" Loi d''amortissement"';
                         TableRelation = "Depreciation Book";
                     }
-                    field(IndexFigure; IndexFigure)
+                    field(IndexFigureF; IndexFigure)
                     {
                         ApplicationArea = FixedAssets;
                         Caption = 'Index Figure', Comment = 'FRA="Taux réévaluation"';
                         MinValue = 0;
                     }
-                    field(FAPostingDate; FAPostingDate)
+                    field(FAPostingDateF; FAPostingDate)
                     {
                         ApplicationArea = FixedAssets;
                         Caption = 'FA Posting Date', Comment = 'FRA="Date compta. immo."';
                     }
-                    field(PostingDate; PostingDate)
+                    field(PostingDateF; PostingDate)
                     {
                         ApplicationArea = FixedAssets;
                         Caption = 'Posting Date', Comment = 'FRA="Date compta."';
                     }
-                    field(DocumentNo; DocumentNo)
+                    field(DocumentNoF; DocumentNo)
                     {
                         ApplicationArea = FixedAssets;
                         Caption = 'Document No.', Comment = 'FRA="N° document"';
                     }
-                    field(PostingDescription; PostingDescription)
+                    field(PostingDescriptionF; PostingDescription)
                     {
                         ApplicationArea = FixedAssets;
                         Caption = 'Posting Description', Comment = 'FRA="Libellé écriture"';
                     }
-                    field(InsertBalAccount; BalAccount)
+                    field(InsertBalAccountF; BalAccount)
                     {
                         ApplicationArea = FixedAssets;
                         Caption = 'Insert Bal. Account', Comment = 'FRA="Insérer compte contrepartie"';
@@ -268,11 +268,11 @@ report 50036 "CPA Index Fixed Assets"
         PostingDescription: Text[100];
         DeprBookCode: Code[10];
 
-    procedure InsertGenJnlLine(FANo: Code[20]; IndexAmount: Decimal; PostingType: Enum "FA Journal Line FA Posting Type")
+    procedure InsertGenJnlLine(FANo: Code[20]; IndexAmountP: Decimal; PostingType: Enum "FA Journal Line FA Posting Type")
     var
         FAInsertGLAcc: Codeunit "FA Insert G/L Account";
     begin
-        if IndexAmount = 0 then
+        if IndexAmountP = 0 then
             exit;
         if FirstGenJnl then begin
             GenJnlLine.LockTable();
@@ -299,7 +299,7 @@ report 50036 "CPA Index Fixed Assets"
         GenJnlLine."Posting No. Series" := NoSeries2;
         GenJnlLine.Description := PostingDescription;
         GenJnlLine.Validate("Depreciation Book Code", DeprBookCode);
-        GenJnlLine.Validate(Amount, IndexAmount);
+        GenJnlLine.Validate(Amount, IndexAmountP);
         GenJnlLine."Index Entry" := true;
         GenJnlNextLineNo := GenJnlNextLineNo + 10000;
         GenJnlLine."Line No." := GenJnlNextLineNo;
@@ -311,9 +311,9 @@ report 50036 "CPA Index Fixed Assets"
         end;
     end;
 
-    procedure InsertFAJnlLine(FANo: Code[20]; IndexAmount: Decimal; PostingType: Enum "FA Journal Line FA Posting Type")
+    procedure InsertFAJnlLine(FANo: Code[20]; IndexAmountL: Decimal; PostingType: Enum "FA Journal Line FA Posting Type")
     begin
-        if IndexAmount = 0 then
+        if IndexAmountL = 0 then
             exit;
         if FirstFAJnl then begin
             FAJnlLine.LockTable();
@@ -338,7 +338,7 @@ report 50036 "CPA Index Fixed Assets"
         FAJnlLine."Posting No. Series" := Noseries3;
         FAJnlLine.Description := PostingDescription;
         FAJnlLine.Validate("Depreciation Book Code", DeprBookCode);
-        FAJnlLine.Validate(Amount, IndexAmount);
+        FAJnlLine.Validate(Amount, IndexAmountL);
         FAJnlLine."Index Entry" := true;
         FAJnlNextLineNo := FAJnlNextLineNo + 10000;
         FAJnlLine."Line No." := FAJnlNextLineNo;

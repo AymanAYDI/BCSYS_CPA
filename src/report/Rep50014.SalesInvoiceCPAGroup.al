@@ -993,7 +993,7 @@ report 50014 "Sales - Invoice CPA Group"
                 group(Options)
                 {
                     Caption = 'Options', Comment = 'FRA="Options"';
-                    field(NoOfCopies; NoOfCopies)
+                    field(NoOfCopiesF; NoOfCopies)
                     {
                         Caption = 'No. of Copies', Comment = 'FRA="Nombre de copies"';
                         ApplicationArea = All;
@@ -1006,15 +1006,9 @@ report 50014 "Sales - Invoice CPA Group"
         {
         }
 
-        trigger OnInit()
-        begin
-            LogInteractionEnable := true;
-        end;
-
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            LogInteractionEnable := LogInteraction;
         end;
     }
 
@@ -1121,7 +1115,6 @@ report 50014 "Sales - Invoice CPA Group"
         GIncludeShptNo: Boolean;
         GetTotalLineAmount: Decimal;
         GetTotalAmountIncVAT: Decimal;
-        LogInteractionEnable: Boolean;
         DisplayAssemblyInformation: Boolean;
         PhoneNoCaptionLbl: Label 'Phone No.', Comment = 'FRA="N° téléphone"';
         VATRegNoCaptionLbl: Label 'VAT Registration No.', Comment = 'FRA="N° identif. intracomm."';

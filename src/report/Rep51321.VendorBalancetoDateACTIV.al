@@ -324,17 +324,17 @@ report 51321 "Vendor - Balance to Date ACTIV"
                         Caption = 'Show Amounts in LCY', Comment = 'FRA="Afficher montants DS"';
                         ApplicationArea = All;
                     }
-                    field(PrintOnePrPage; PrintOnePrPage)
+                    field(PrintOnePrPageF; PrintOnePrPage)
                     {
                         Caption = 'New Page per Vendor', Comment = 'FRA="Nouvelle page par fournisseur"';
                         ApplicationArea = All;
                     }
-                    field(PrintUnappliedEntries; PrintUnappliedEntries)
+                    field(PrintUnappliedEntriesF; PrintUnappliedEntries)
                     {
                         Caption = 'Include Unapplied Entries', Comment = 'FRA="Inclure écritures non lettrées"';
                         ApplicationArea = All;
                     }
-                    field(EnAttente; EnAttente)
+                    field(EnAttenteF; EnAttente)
                     {
                         Caption = 'Not good to pay', Comment = 'FRA="En attente"';
                         ApplicationArea = All;

@@ -1,7 +1,7 @@
 namespace Bcsys.CPA.Basics;
 
 using Microsoft.Purchases.Document;
-using Microsoft.Inventory.Item;
+using System.Utilities;
 using Microsoft.Foundation.Company;
 using System.Security.AccessControl;
 using System.Security.User;
@@ -22,14 +22,14 @@ using Microsoft.Utilities;
 using Microsoft.CRM.Segment;
 using Microsoft.Foundation.ExtendedText;
 using Microsoft.Purchases.Vendor;
-using System.Utilities;
-report 50017 "Order Purchase CPA."
+
+report 50015 "Order Purchase CPA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/report/rdl/OrderPurchaseCPA..rdl';
+    RDLCLayout = './src/report/rdl/OrderPurchaseCPA.rdl';
     Caption = 'Order', Comment = 'FRA="Commande"';
     PreviewMode = PrintLayout;
-    UsageCategory = None;
+    UsageCategory = Tasks;
     ApplicationArea = All;
 
     dataset
@@ -40,9 +40,6 @@ report 50017 "Order Purchase CPA."
                                 where("Document Type" = const(Order));
             RequestFilterFields = "No.", "Buy-from Vendor No.", "No. Printed";
             RequestFilterHeading = 'Purchase Order';
-            column(CGA; LogoItem_G.Picture)
-            {
-            }
             column(DocType_PurchHeader; "Document Type")
             {
             }
@@ -131,9 +128,6 @@ report 50017 "Order Purchase CPA."
                 {
                     DataItemTableView = sorting(Number)
                                         where(Number = const(1));
-                    column(InvoiceComment; "Purchase Header"."Invoice Comment")
-                    {
-                    }
                     column(Prevention; prevention_g)
                     {
                     }
@@ -342,7 +336,10 @@ report 50017 "Order Purchase CPA."
                                 if DimText = '' then
                                     DimText := STRSUBSTNO('%1 %2', DimSetEntry1."Dimension Code", DimSetEntry1."Dimension Value Code")
                                 else
-                                    DimText := CopyStr(STRSUBSTNO('%1, %2 %3', DimText, DimSetEntry1."Dimension Code", DimSetEntry1."Dimension Value Code"), 1, MaxStrLen(DimText));
+                                    DimText :=
+                                      CopyStr(STRSUBSTNO(
+                                        '%1, %2 %3', DimText,
+                                        DimSetEntry1."Dimension Code", DimSetEntry1."Dimension Value Code"), 1, MaxStrLen(DimText));
                                 if STRLEN(DimText) > MAXSTRLEN(OldDimText) then begin
                                     DimText := OldDimText;
                                     Continue := true;
@@ -528,7 +525,10 @@ report 50017 "Order Purchase CPA."
                                     if DimText = '' then
                                         DimText := STRSUBSTNO('%1 %2', DimSetEntry2."Dimension Code", DimSetEntry2."Dimension Value Code")
                                     else
-                                        DimText := CopyStr(STRSUBSTNO('%1, %2 %3', DimText, DimSetEntry2."Dimension Code", DimSetEntry2."Dimension Value Code"), 1, MaxStrLen(DimText));
+                                        DimText :=
+                                          CopyStr(STRSUBSTNO(
+                                            '%1, %2 %3', DimText,
+                                            DimSetEntry2."Dimension Code", DimSetEntry2."Dimension Value Code"), 1, MaxStrLen(DimText));
                                     if STRLEN(DimText) > MAXSTRLEN(OldDimText) then begin
                                         DimText := OldDimText;
                                         Continue := true;
@@ -558,6 +558,9 @@ report 50017 "Order Purchase CPA."
                                (TempPurchLine."VAT Calculation Type" = TempPurchLine."VAT Calculation Type"::"Full VAT")
                             then
                                 TempPurchLine."Line Amount" := 0;
+
+                            if (TempPurchLine.Type = TempPurchLine.Type::"G/L Account") and (not ShowInternalInfo) then
+                                "Purchase Line"."No." := '';
                             AllowInvDisctxt := FORMAT("Purchase Line"."Allow Invoice Disc.");
                             TotalSubTotal += "Purchase Line"."Line Amount";
                             TotalInvoiceDiscountAmount -= "Purchase Line"."Inv. Discount Amount";
@@ -817,7 +820,10 @@ report 50017 "Order Purchase CPA."
                                     if DimText = '' then
                                         DimText := STRSUBSTNO('%1 %2', PrepmtDimSetEntry."Dimension Code", PrepmtDimSetEntry."Dimension Value Code")
                                     else
-                                        DimText := CopyStr(STRSUBSTNO('%1, %2 %3', DimText, PrepmtDimSetEntry."Dimension Code", PrepmtDimSetEntry."Dimension Value Code"), 1, MaxStrLen(DimText));
+                                        DimText :=
+                                          CopyStr(STRSUBSTNO(
+                                            '%1, %2 %3', DimText,
+                                            PrepmtDimSetEntry."Dimension Code", PrepmtDimSetEntry."Dimension Value Code"), 1, MaxStrLen(DimText));
                                     if STRLEN(DimText) > MAXSTRLEN(OldDimText) then begin
                                         DimText := OldDimText;
                                         Continue := true;
@@ -909,24 +915,24 @@ report 50017 "Order Purchase CPA."
                     if not TempPrepmtPurchLine.ISEMPTY then begin
                         PurchPostPrepmt.GetPurchLinesToDeduct("Purchase Header", TempPurchLine);
                         if not TempPurchLine.ISEMPTY then
-                            PurchPostPrepmt.CalcVATAmountLines("Purchase Header", TempPurchLine, TempPrePmtVATAmountLineDeduct, 1);
+                            PurchPostPrepmt.CalcVATAmountLines("Purchase Header", TempPurchLine, TempPrepmtVATAmountLineDeduct, 1);
                     end;
                     PurchPostPrepmt.CalcVATAmountLines("Purchase Header", TempPrepmtPurchLine, TempPrepmtVATAmountLine, 0);
                     if TempPrepmtVATAmountLine.FINDSET() then
                         repeat
-                            TempPrePmtVATAmountLineDeduct := TempPrepmtVATAmountLine;
-                            if TempPrePmtVATAmountLineDeduct.FIND() then begin
-                                TempPrepmtVATAmountLine."VAT Base" := TempPrepmtVATAmountLine."VAT Base" - TempPrePmtVATAmountLineDeduct."VAT Base";
-                                TempPrepmtVATAmountLine."VAT Amount" := TempPrepmtVATAmountLine."VAT Amount" - TempPrePmtVATAmountLineDeduct."VAT Amount";
+                            TempPrepmtVATAmountLineDeduct := TempPrepmtVATAmountLine;
+                            if TempPrepmtVATAmountLineDeduct.FIND() then begin
+                                TempPrepmtVATAmountLine."VAT Base" := TempPrepmtVATAmountLine."VAT Base" - TempPrepmtVATAmountLineDeduct."VAT Base";
+                                TempPrepmtVATAmountLine."VAT Amount" := TempPrepmtVATAmountLine."VAT Amount" - TempPrepmtVATAmountLineDeduct."VAT Amount";
                                 TempPrepmtVATAmountLine."Amount Including VAT" := TempPrepmtVATAmountLine."Amount Including VAT" -
-                                  TempPrePmtVATAmountLineDeduct."Amount Including VAT";
-                                TempPrepmtVATAmountLine."Line Amount" := TempPrepmtVATAmountLine."Line Amount" - TempPrePmtVATAmountLineDeduct."Line Amount";
+                                  TempPrepmtVATAmountLineDeduct."Amount Including VAT";
+                                TempPrepmtVATAmountLine."Line Amount" := TempPrepmtVATAmountLine."Line Amount" - TempPrepmtVATAmountLineDeduct."Line Amount";
                                 TempPrepmtVATAmountLine."Inv. Disc. Base Amount" := TempPrepmtVATAmountLine."Inv. Disc. Base Amount" -
-                                  TempPrePmtVATAmountLineDeduct."Inv. Disc. Base Amount";
+                                  TempPrepmtVATAmountLineDeduct."Inv. Disc. Base Amount";
                                 TempPrepmtVATAmountLine."Invoice Discount Amount" := TempPrepmtVATAmountLine."Invoice Discount Amount" -
-                                  TempPrePmtVATAmountLineDeduct."Invoice Discount Amount";
+                                  TempPrepmtVATAmountLineDeduct."Invoice Discount Amount";
                                 TempPrepmtVATAmountLine."Calculated VAT Amount" := TempPrepmtVATAmountLine."Calculated VAT Amount" -
-                                  TempPrePmtVATAmountLineDeduct."Calculated VAT Amount";
+                                  TempPrepmtVATAmountLineDeduct."Calculated VAT Amount";
                                 TempPrepmtVATAmountLine.MODIFY();
                             end;
                         until TempPrepmtVATAmountLine.NEXT() = 0;
@@ -965,16 +971,18 @@ report 50017 "Order Purchase CPA."
                 if "Purchase Header".Status = "Purchase Header".Status::Released then
                     printSign_g := true;
 
-                CurrReport.LANGUAGE := CduLanguage.GetLanguageID("Language Code");
+                CurrReport.Language := CduLanguage.GetLanguageIdOrDefault("Language Code");
 
                 CompanyInfo.GET();
                 CompanyInfo."Phone No." := RespCenter."Phone No.";
                 CompanyInfo."Fax No." := RespCenter."Fax No.";
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
+
                 penalty_g := CopyStr(initTexte(CompanyInfo."Late penalty", 50), 1, MaxStrLen(penalty_g));
                 condition_g := CopyStr(initTexte(CompanyInfo."General Condition Purchase", 250), 1, MaxStrLen(condition_g));
                 texte_g := CopyStr(initTexte(CompanyInfo."Comment Order Purchase", 250), 1, MaxStrLen(texte_g));
                 waranty_g := CopyStr(initTexte(CompanyInfo."Special warranty", 250), 1, MaxStrLen(waranty_g));
+
                 CLEAR(user_g);
                 CLEAR(userSetup_g);
                 if userSetup_g.GET("Purchase Header".Signatory) then begin
@@ -1053,15 +1061,6 @@ report 50017 "Order Purchase CPA."
                 end;
                 PricesInclVATtxt := FORMAT("Prices Including VAT");
             end;
-
-            trigger OnPreDataItem()
-            begin
-
-                if LogoItem_G.GET(LogoName_G) then
-                    LogoItem_G.CALCFIELDS(Picture)
-                else
-                    MESSAGE('Erreur logo');
-            end;
         }
     }
 
@@ -1083,14 +1082,7 @@ report 50017 "Order Purchase CPA."
                     }
                     field(prevention_gF; prevention_g)
                     {
-                        Caption = 'Plan de prévention', comment = 'FRA="Plan de prévention"';
-                        ApplicationArea = All;
-                    }
-                    field(LogoItemF; LogoName_G)
-                    {
-                        Caption = 'Article CGA', comment = 'FRA="Article CGA"';
-                        Editable = false;
-                        TableRelation = Item;
+                        Caption = 'Plan de prévention', Comment = 'FRA="Plan de prévention"';
                         ApplicationArea = All;
                     }
                 }
@@ -1103,7 +1095,6 @@ report 50017 "Order Purchase CPA."
             LogInteraction := SegManagement.FindInteractTmplCode(13) <> '';
 
             prevention_g := false;
-            LogoName_G := 'CGA';
         end;
     }
 
@@ -1122,18 +1113,17 @@ report 50017 "Order Purchase CPA."
         SalesPurchPerson: Record "Salesperson/Purchaser";
         TempVATAmountLine: Record "VAT Amount Line" temporary;
         TempPrepmtVATAmountLine: Record "VAT Amount Line" temporary;
-        TempPrePmtVATAmountLineDeduct: Record "VAT Amount Line" temporary;
+        TempPrepmtVATAmountLineDeduct: Record "VAT Amount Line" temporary;
+        PurchSetup: Record "Purchases & Payables Setup";
+        CurrExchRate: Record "Currency Exchange Rate";
         TempPurchLine: Record "Purchase Line" temporary;
-        user_g: Record User;
         DimSetEntry1: Record "Dimension Set Entry";
         DimSetEntry2: Record "Dimension Set Entry";
         PrepmtDimSetEntry: Record "Dimension Set Entry";
         TempPrepmtInvBuf: Record "Prepayment Inv. Line Buffer" temporary;
         RespCenter: Record "Responsibility Center";
-        CurrExchRate: Record "Currency Exchange Rate";
-        PurchSetup: Record "Purchases & Payables Setup";
         userSetup_g: Record "User Setup";
-        LogoItem_G: Record Item;
+        user_g: Record User;
         CduLanguage: Codeunit Language;
         PurchCountPrinted: codeunit "Purch.Header-Printed";
         FormatAddr: codeunit "Format Address";
@@ -1176,7 +1166,7 @@ report 50017 "Order Purchase CPA."
         VALVATAmountLCY: Decimal;
         VALSpecLCYHeader: Text[80];
         VALExchRate: Text[50];
-        Text007: Label 'VAT Amount Specification in ', Comment = 'FRA="Détail TVA dans"';
+        Text007: Label 'VAT Amount Specification in ', Comment = 'FRA="Détail TVA dans "';
         Text008: Label 'Local Currency', Comment = 'FRA="Devise société"';
         Text009: Label 'Exchange rate: %1/%2', Comment = 'FRA="Taux de change : %1/%2"';
         PrepmtVATAmount: Decimal;
@@ -1231,7 +1221,6 @@ report 50017 "Order Purchase CPA."
         printSign_g: Boolean;
         waranty_g: Text[250];
         prevention_g: Boolean;
-        LogoName_G: Code[20];
 
     procedure InitializeRequest(NewNoOfCopies: Integer; NewShowInternalInfo: Boolean; NewArchiveDocument: Boolean; NewLogInteraction: Boolean)
     begin
@@ -1246,11 +1235,12 @@ report 50017 "Order Purchase CPA."
         ExtTextLine_L: Record "Extended Text Line";
         TextToReturn_L: Text[1000];
     begin
+
         CLEAR(TextToReturn_L);
         CLEAR(ExtTextLine_L);
         ExtTextLine_L.SETRANGE("Table Name", ExtTextLine_L."Table Name"::"Standard Text");
         ExtTextLine_L.SETRANGE("No.", CodeText_P);
-        if ExtTextLine_L.FINDFIRST() then
+        if ExtTextLine_L.FindSet() then
             repeat
                 if STRLEN(TextToReturn_L) + STRLEN(ExtTextLine_L.Text) < MaxLg_P then
                     TextToReturn_L := CopyStr(TextToReturn_L + ExtTextLine_L.Text, 1, MaxStrLen(TextToReturn_L));

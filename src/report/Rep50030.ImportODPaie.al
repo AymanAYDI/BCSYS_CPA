@@ -67,7 +67,7 @@ report 50030 "Import OD Paie"
         {
             area(content)
             {
-                field(txtFileName; txtFileName)
+                field(txtFileNameF; txtFileName)
                 {
                     AssistEdit = true;
                     Caption = 'File name', Comment = 'FRA="Nom du Fichier"';
@@ -88,7 +88,7 @@ report 50030 "Import OD Paie"
                         ServerFileName := CopyStr(txtFileName, 1, MaxStrLen(ServerFileName));
                     end;
                 }
-                field(JTN; JTN)
+                field(JTNF; JTN)
                 {
                     Caption = 'Nom modèle feuille comptabilité', Comment = 'FRA="Nom modèle feuille comptabilité"';
                     ApplicationArea = All;
@@ -98,7 +98,7 @@ report 50030 "Import OD Paie"
                         GenJournalTemplate.GET(JTN);
                     end;
                 }
-                field(JBN; JBN)
+                field(JBNF; JBN)
                 {
                     Caption = 'Nom feuille comptabilité', Comment = 'FRA="Nom feuille comptabilité"';
                     ApplicationArea = All;

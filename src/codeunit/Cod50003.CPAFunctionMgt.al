@@ -20,7 +20,7 @@ codeunit 50003 "CPA Function Mgt"
     procedure CheckPurchaseHeaderPendingApproval(var PurchHeader: Record "Purchase Header")
     var
         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
-        Text002: Label 'This document can only be released when the approval process is complete.';
+        Text002: Label 'This document can only be released when the approval process is complete.', Comment = 'FRA="Ce document ne peut être lancé que lorsque le processus d''approbation est terminé."';
     begin
 
         if ApprovalsMgmt.IsPurchaseHeaderPendingApproval(PurchHeader) then
@@ -39,8 +39,8 @@ codeunit 50003 "CPA Function Mgt"
     var
         AccountingPeriod: Record "Accounting Period";
         Date: Record Date;
-        Text009: Label 'Fiscally Closed';
-        Text010: Label 'Fiscally Open';
+        Text009: Label 'Fiscally Closed', Comment = 'FRA="Clôturé fiscalement"';
+        Text010: Label 'Fiscally Open', Comment = 'FRA="Ouvert fiscalement"';
     begin
         Date.SetRange("Period Type", Date."Period Type"::Date);
         Date.SetFilter("Period Start", PeriodRange);

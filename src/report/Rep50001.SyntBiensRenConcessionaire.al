@@ -59,7 +59,7 @@ report 50001 "Synt. Biens Ren Concessionaire"
             column(FiltreExercice_Caption; Text016)
             {
             }
-            column(Deb; Deb)
+            column(deb; Deb)
             {
             }
             column(Fin; Fin)
@@ -319,29 +319,29 @@ report 50001 "Synt. Biens Ren Concessionaire"
         {
             area(content)
             {
-                field(Deb; Deb)
+                field(DebF; Deb)
                 {
                     Caption = 'Date Début Exercice', Comment = 'FRA="Date Début Exercice"';
                     ApplicationArea = All;
                 }
-                field(Fin; Fin)
+                field(FinF; Fin)
                 {
                     Caption = 'Date Fin Exercice', Comment = 'FRA="Date Fin Exercice"';
                     ApplicationArea = All;
                 }
-                field(GInConncessionBy; GInConncessionBy)
+                field(GInConncessionByF; GInConncessionBy)
                 {
                     Caption = 'Mise en concession par', Comment = 'FRA="Mise en concession par"';
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(GRenewable; GRenewable)
+                field(GRenewableF; GRenewable)
                 {
                     Caption = 'Renouvelable', Comment = 'FRA="Renouvelable"';
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(PrintToExcel; PrintToExcel)
+                field(PrintToExcelF; PrintToExcel)
                 {
                     Caption = 'Print to Excel', Comment = 'FRA="Imprimer dans Excel"';
                     ApplicationArea = All;

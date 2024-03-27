@@ -310,7 +310,7 @@ report 50035 "CPA Bank Account Statement"
                     Editable = BankStatementVisible;
                     Enabled = BankStatementVisible;
                     Visible = BankStatementVisible;
-                    field(ImpLigRel; ImpLigRel)
+                    field(ImpLigRelF; ImpLigRel)
                     {
                         Caption = 'Sorted by Document No.', Comment = 'FRA="Trié par n° document"';
                         Editable = BankStatementVisible;

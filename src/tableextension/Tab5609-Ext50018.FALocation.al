@@ -98,5 +98,5 @@ tableextension 50018 "FA Location" extends "FA Location" //5609
 
     var
         Text50000: Label 'Wrong Start/End Dates', Comment = 'FRA="Erreur dans les dates debut et fin"';
-        GType: Option Insert,Modify,Delete,Rename;
+        GType: Enum GType;
 }

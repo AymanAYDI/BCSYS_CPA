@@ -6666,8 +6666,8 @@ End Function
         <Field Name="FiltreExercice_Caption">
           <DataField>FiltreExercice_Caption</DataField>
         </Field>
-        <Field Name="Deb">
-          <DataField>Deb</DataField>
+        <Field Name="deb">
+          <DataField>deb</DataField>
         </Field>
         <Field Name="Fin">
           <DataField>Fin</DataField>

@@ -41,7 +41,7 @@ codeunit 50000 "CPA Events Mgt."
             PurchHeader."Assigned User ID" := CopyStr(USERID, 1, MaxStrLen(PurchHeader."Assigned User ID"));
     end;
 
-    /* TODO:le code spécifique n'a pas été migré avoir la nouvelle fonction RenumberDocNoOnLines
+    /* TODO:le code spécifique n'a pas été migré a voir la nouvelle fonction RenumberDocNoOnLines
     [EventSubscriber(ObjectType::Table, Database::"Gen. Journal Line", 'OnBeforeRenumberDocNoOnLines', '', false, false)]
      local procedure OnBeforeRenumberDocNoOnLinesGenJournalLine(var DocNo: Code[20]; var GenJnlLine2: Record "Gen. Journal Line"; var IsHandled: Boolean)
      var
@@ -129,8 +129,8 @@ codeunit 50000 "CPA Events Mgt."
         PrepaymentMgt: Codeunit "Prepayment Mgt.";
         AppAmount_l: Decimal;
         AppAmountLCY_l: Decimal;
-        Text005: Label 'There are unpaid prepayment invoices that are related to the document of type %1 with the number %2.';
-        Text001_l: Label 'Montant HT supérieur au seuil !';
+        Text005: Label 'There are unpaid prepayment invoices that are related to the document of type %1 with the number %2.', Comment = 'FRA="Il existe des factures d''acompte impayées liées au document de type %1 portant le numéro %2."';
+        Text001_l: Label 'Montant HT supérieur au seuil !', Comment = 'FRA="Montant HT supérieur au seuil !"';
     begin
         IsHandled := true;
         if PurchHeader."Document Type" = PurchHeader."Document Type"::Order then begin

@@ -14,7 +14,7 @@ report 50033 "Import Subscribers"
         FileInStream: InStream;
     begin
         Clear(FileInStream);
-        If UploadIntoStream(Text001, '', Text002, TempFile, FileInStream) then
+        if UploadIntoStream(Text001, '', Text002, TempFile, FileInStream) then
             ImportSubscribers(FileInStream);
         CurrReport.QUIT();
     end;
