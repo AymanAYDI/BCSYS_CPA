@@ -3610,7 +3610,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3133908286 - Action 4143590485 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3133908286">
           <source>Asset links</source>
-          <note from="Developer" annotates="general" priority="2">FRA=""</note>
+          <note from="Developer" annotates="general" priority="2">FRA="Liens Immobilisation"</note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Card - Action Asset links - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3133908286 - Action 1422703222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3133908286">

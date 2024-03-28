@@ -78,7 +78,6 @@ pageextension 50016 "Fixed Asset Card" extends "Fixed Asset Card" //5600
             field(FixedAssetDescription; AttFixedAsset.Description)
             {
                 Caption = '.', Comment = 'FRA="."';
-                ;
                 Editable = false;
                 ApplicationArea = All;
             }
@@ -94,7 +93,7 @@ pageextension 50016 "Fixed Asset Card" extends "Fixed Asset Card" //5600
         {
             action("Asset links")
             {
-                Caption = 'Asset links', Comment = 'FRA=""';
+                Caption = 'Asset links', Comment = 'FRA="Liens Immobilisation"';
                 Image = Links;
                 Promoted = true;
                 PromotedCategory = Process;
