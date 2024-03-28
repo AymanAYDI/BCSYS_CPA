@@ -1,6 +1,7 @@
 namespace Bcsys.CPA.Basics;
-table 50001 "Intégration facture vente"
+table 50001 "Integration facture vente"
 {
+    Caption = 'Integration facture vente', Comment = 'FRA="Intégration facture vente"';
     fields
     {
         field(1; "Entry No."; Integer)
