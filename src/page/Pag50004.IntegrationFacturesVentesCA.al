@@ -15,7 +15,7 @@ page 50004 "Integration Factures Ventes CA"
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = List;
-    SourceTable = "Intégration facture vente";
+    SourceTable = "Integration facture vente";
     SourceTableTemporary = true;
     UsageCategory = Tasks;
     ApplicationArea = All;
