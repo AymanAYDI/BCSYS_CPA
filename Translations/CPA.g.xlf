@@ -254,7 +254,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report CMB- Imp. CFONB120 B. Ac. Stnt - NamedType Text8060982</note>
         </trans-unit>
         <trans-unit id="Report 1191263629 - NamedType 844396363" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import completed.</source>
+          <source>Import completed. %1 Bank acc. Rec. created</source>
           <note from="Developer" annotates="general" priority="2">FRA="Import terminé. %1 relevé(s) créé(s)."</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report CMB- Imp. CFONB120 B. Ac. Stnt - NamedType Text8060983</note>
         </trans-unit>
@@ -264,7 +264,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report CMB- Imp. CFONB120 B. Ac. Stnt - NamedType Text8060985</note>
         </trans-unit>
         <trans-unit id="Report 1191263629 - NamedType 3226273808" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Statement date should be set.</source>
+          <source>For bank account %1, the balance of the last statement (%2) does not correspond to that of the first imported statement (%3).</source>
           <note from="Developer" annotates="general" priority="2">FRA="Pour le compte bancaire %1, le solde du dernier relevé (%2) ne correspond à celui du premier relevé importé (%3)."</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report CMB- Imp. CFONB120 B. Ac. Stnt - NamedType Text8060986</note>
         </trans-unit>
@@ -477,6 +477,126 @@
           <source>Number of copies</source>
           <note from="Developer" annotates="general" priority="2">FRA="Nombre de copies"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report CPA Draft notice - Control NumberOfCopies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Index Fixed Assets</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Actualiser immobilisations"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must specify %1.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Vous devez spécifier une valeur %1."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FA Posting Date must not be a closing date.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="La date compta. immo. ne doit pas être une date de clôture."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 and %2 must be identical. %3 must be %4 in %5 %6 = %7.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="%1 et %2 doivent être identiques. %3 doit être %4 dans %5 %6 = %7."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indexing fixed asset   #1##########</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Réévaluation immobilisation     #1########"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - NamedType 2247286032" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot index fixed assets in a derogatory depreciation book. Instead you must\index them in the depreciation book integrated with G/L.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Vous ne pouvez pas indexer des immobilisations dans des lois d'amortissement dérogatoires. Vous devez les\indexer dans les lois d'amortissement intégrées à la comptabilité."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text10800</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Options"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 3757671810 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Depreciation Book</source>
+          <note from="Developer" annotates="general" priority="2">FRA=" Loi d'amortissement"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control DepreciationBookF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 261120724 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="N° document"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control DocumentNoF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 1013462791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FA Posting Date</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Date compta. immo."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control FAPostingDateF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 171145402 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Index</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Réévaluer"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control Index - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 1794501446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Derogatory</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Dérogatoire"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control Derogatory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 2511236675 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Acquisition Cost</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Coût acquisition"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[1] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 1381406166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Depreciation</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Amortissement"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[2] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 4132845957 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Write-Down</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Dépréciation"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[3] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 59320336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Appreciation</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Réévaluation"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[4] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 2810760127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom 1</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Param. 1"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[5] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 1680929618 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom 2</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Param. 2"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[6] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 317267084 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Maintenance</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Maintenance"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[8] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 931617403 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salvage Value</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Valeur résiduelle"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[9] - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 3270349878 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Index Figure</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Taux réévaluation"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexFigureF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 321377185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insert Bal. Account</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Insérer compte contrepartie"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control InsertBalAccountF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 3501328998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Date compta."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control PostingDateF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 85188923 - Control 2452273180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Description</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Libellé écriture"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control PostingDescriptionF - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3768535635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Etat des amortissements de caducité</source>
@@ -4317,126 +4437,6 @@
           <source>CA</source>
           <note from="Developer" annotates="general" priority="2">FRA="CA"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Type Equipement - EnumValue CA - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Index Fixed Assets</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Actualiser immobilisations"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must specify %1.</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Vous devez spécifier une valeur %1."</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text000</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
-          <source>FA Posting Date must not be a closing date.</source>
-          <note from="Developer" annotates="general" priority="2">FRA="La date compta. immo. ne doit pas être une date de clôture."</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text001</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 and %2 must be identical. %3 must be %4 in %5 %6 = %7.</source>
-          <note from="Developer" annotates="general" priority="2">FRA="%1 et %2 doivent être identiques. %3 doit être %4 dans %5 %6 = %7."</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text002</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Indexing fixed asset   #1##########</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Réévaluation immobilisation     #1########"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text003</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - NamedType 2247286032" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot index fixed assets in a derogatory depreciation book. Instead you must\index them in the depreciation book integrated with G/L.</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Vous ne pouvez pas indexer des immobilisations dans des lois d'amortissement dérogatoires. Vous devez les\indexer dans les lois d'amortissement intégrées à la comptabilité."</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - NamedType Text10800</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Options</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Options"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control Options - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 3757671810 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Depreciation Book</source>
-          <note from="Developer" annotates="general" priority="2">FRA=" Loi d'amortissement"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control DepreciationBookF - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 261120724 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document No.</source>
-          <note from="Developer" annotates="general" priority="2">FRA="N° document"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control DocumentNoF - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 1013462791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>FA Posting Date</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Date compta. immo."</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control FAPostingDateF - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 171145402 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Index</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Réévaluer"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control Index - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 1794501446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Derogatory</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Dérogatoire"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control Derogatory - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 2511236675 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Acquisition Cost</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Coût acquisition"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[1] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 1381406166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Depreciation</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Amortissement"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[2] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 4132845957 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Write-Down</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Dépréciation"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[3] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 59320336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Appreciation</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Réévaluation"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[4] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 2810760127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Custom 1</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Param. 1"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[5] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 1680929618 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Custom 2</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Param. 2"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[6] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 317267084 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Maintenance</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Maintenance"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[8] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 931617403 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Salvage Value</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Valeur résiduelle"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexChoices[9] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 3270349878 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Index Figure</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Taux réévaluation"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control IndexFigureF - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 321377185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Insert Bal. Account</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Insérer compte contrepartie"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control InsertBalAccountF - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 3501328998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Posting Date</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Date compta."</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control PostingDateF - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 85188923 - Control 2452273180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Posting Description</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Libellé écriture"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPA Index Fixed Assets - Control PostingDescriptionF - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 2676061527 - Method 2142832579 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
           <source>The first entry must be an %2 for %1.</source>

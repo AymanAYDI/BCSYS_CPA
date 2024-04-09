@@ -302,7 +302,7 @@
           <target>Import relevé bancaire CFONB120</target>
         </trans-unit>
         <trans-unit id="Report 1191263629 - NamedType 844396363" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import completed.</source>
+          <source>Import completed. %1 Bank acc. Rec. created</source>
           <note from="Developer" annotates="general" priority="2">FRA="Import terminé. %1 relevé(s) créé(s)."</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report CMB- Imp. CFONB120 B. Ac. Stnt - NamedType Text8060983</note>
           <target>Import terminé. %1 relevé(s) créé(s).</target>
@@ -314,7 +314,7 @@
           <target>Format de fichier non conforme.</target>
         </trans-unit>
         <trans-unit id="Report 1191263629 - NamedType 3226273808" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Statement date should be set.</source>
+          <source>For bank account %1, the balance of the last statement (%2) does not correspond to that of the first imported statement (%3).</source>
           <note from="Developer" annotates="general" priority="2">FRA="Pour le compte bancaire %1, le solde du dernier relevé (%2) ne correspond à celui du premier relevé importé (%3)."</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report CMB- Imp. CFONB120 B. Ac. Stnt - NamedType Text8060986</note>
           <target>Pour le compte bancaire %1, le solde du dernier relevé (%2) ne correspond à celui du premier relevé importé (%3).</target>

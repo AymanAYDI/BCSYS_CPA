@@ -82,12 +82,12 @@ report 50016 "CMB- Imp. CFONB120 B. Ac. Stnt"
         TempBankAccRec_G: Record "Bank Acc. Reconciliation" temporary;
         InStream_G: InStream;
         Text8060982: Label 'Import Bank acc. Rec. SG CFONB120', Comment = 'FRA="Import relevé bancaire CFONB120"';
-        Text8060983: Label 'Import completed.', Comment = 'FRA="Import terminé. %1 relevé(s) créé(s)."';
+        Text8060983: Label 'Import completed. %1 Bank acc. Rec. created', Comment = 'FRA="Import terminé. %1 relevé(s) créé(s)."';
         FileName_G: Text[1024];
         NextLineNo_G: Integer;
         Text8060985: Label 'File Format does not match.', Comment = 'FRA="Format de fichier non conforme."';
         StatementDate_G: Date;
-        Text8060986: Label 'Statement date should be set.', Comment = 'FRA="Pour le compte bancaire %1, le solde du dernier relevé (%2) ne correspond à celui du premier relevé importé (%3)."';
+        Text8060986: Label 'For bank account %1, the balance of the last statement (%2) does not correspond to that of the first imported statement (%3).', Comment = 'FRA="Pour le compte bancaire %1, le solde du dernier relevé (%2) ne correspond à celui du premier relevé importé (%3)."';
         IsMaptableRead_G: Boolean;
         Window_G: Dialog;
         MapTableCodeDebit_G: array[20] of Code[1];
@@ -217,7 +217,7 @@ report 50016 "CMB- Imp. CFONB120 B. Ac. Stnt"
     begin
         if DoProcessLines_G then begin
             BankAccReconLine_G.INIT();
-            BankAccReconLine_G.VALIDATE(Type, BankAccReconLine_G.Type::"Bank Account Ledger Entry");
+            BankAccReconLine_G.VALIDATE("Statement Type", BankAccRecon_G."Statement Type"::"Payment Application");
             BankAccReconLine_G."Bank Account No." := BankAccRecon_G."Bank Account No.";
             BankAccReconLine_G."Statement No." := BankAccRecon_G."Statement No.";
             BankAccReconLine_G."Statement Line No." := NextLineNo_G;

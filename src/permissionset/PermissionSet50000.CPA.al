@@ -39,5 +39,7 @@ permissionset 50000 CPA
         page "Integration Factures Ventes CA" = X,
         page List1 = X,
         page listPart1 = X,
-        page "Selection Site" = X;
+        page "Selection Site" = X,
+        report "CMB- Imp. CFONB120 B. Ac. Stnt" = X,
+        report "Order Purchase CPA." = X;
 }

@@ -31,7 +31,7 @@ report 50030 "Import OD Paie"
                 T81.SETRANGE("Journal Batch Name", JBN);
                 if T81.FINDLAST() then begin
                     NumLine := T81."Line No.";
-                    TypeDoc := T81."Document Type".AsInteger();
+                    TypeDoc := T81."Document Type";
                     NoDoc := T81."Document No."
                 end else
                     NumLine := 0;
@@ -141,7 +141,7 @@ report 50030 "Import OD Paie"
         SectionImp: Code[20];
         NbLines: Integer;
         Text007: Label '%1 lignes importées.', Comment = 'FRA="%1 lignes importées."';
-        TypeDoc: Integer;
+        TypeDoc: Enum "Gen. Journal Document Type";
         NoDoc: Code[20];
         ErrSection: Text;
         ErrCompte: Text;

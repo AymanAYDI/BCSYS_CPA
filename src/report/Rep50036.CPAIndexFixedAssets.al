@@ -1,5 +1,6 @@
-namespace Microsoft.FixedAssets.FixedAsset;
+namespace Bcsys.CPA.Basics;
 
+using Microsoft.FixedAssets.FixedAsset;
 using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.FixedAssets.Depreciation;
 using Microsoft.FixedAssets.Journal;
