@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource">
@@ -7,6 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>e52d7f0a-0092-440b-abfc-23d980b21e66</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -54,7 +55,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!G_L_Account__TABLECAPTION__________Filter.Value)</Value>
+                                  <Value>=First(Fields!G_L_Account__TABLECAPTION__________Filter.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -93,7 +94,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!FiscalYearStatusText.Value)</Value>
+                                  <Value>=First(Fields!FiscalYearStatusText.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -132,7 +133,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!Text009.Value)</Value>
+                                  <Value>=First(Fields!Text009.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -171,7 +172,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!COMPANYNAME.Value</Value>
+                                  <Value>=Fields!COMPANYNAME.Value</Value>
                                   <Style>
                                     <Color>#ff0000</Color>
                                   </Style>
@@ -202,7 +203,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!UserCaption.Value</Value>
+                                  <Value>=Fields!UserCaption.Value</Value>
                                   <Style>
                                     <Color>#ff0000</Color>
                                   </Style>
@@ -233,7 +234,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!STRSUBSTNO_Text004_PreviousStartDate_.Value</Value>
+                                  <Value>=Fields!STRSUBSTNO_Text004_PreviousStartDate_.Value</Value>
                                   <Style>
                                     <Color>#ff0000</Color>
                                   </Style>
@@ -264,7 +265,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Detail_Trial_BalanceCaption.Value</Value>
+                                  <Value>=Fields!G_L_Detail_Trial_BalanceCaption.Value</Value>
                                   <Style>
                                     <Color>#ff0000</Color>
                                   </Style>
@@ -295,7 +296,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PageCaption.Value</Value>
+                                  <Value>=Fields!PageCaption.Value</Value>
                                   <Style>
                                     <Color>Red</Color>
                                   </Style>
@@ -335,7 +336,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!Posting_DateCaption.Value)</Value>
+                                  <Value>=First(Fields!Posting_DateCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -367,7 +368,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!Source_CodeCaption.Value)</Value>
+                                  <Value>=First(Fields!Source_CodeCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -399,7 +400,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!Document_No_Caption.Value)</Value>
+                                  <Value>=First(Fields!Document_No_Caption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -431,7 +432,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!External_Document_No_Caption.Value)</Value>
+                                  <Value>=First(Fields!External_Document_No_Caption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -463,7 +464,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!DescriptionCaption.Value)</Value>
+                                  <Value>=First(Fields!DescriptionCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -495,7 +496,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!DebitCaption.Value)</Value>
+                                  <Value>=First(Fields!DebitCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -527,7 +528,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!CreditCaption.Value)</Value>
+                                  <Value>=First(Fields!CreditCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -559,7 +560,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!BalanceCaption.Value)</Value>
+                                  <Value>=First(Fields!BalanceCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -597,7 +598,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -614,6 +615,7 @@
                           </Style>
                         </Textbox>
                         <ColSpan>8</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -636,7 +638,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Account__No__.Value</Value>
+                                  <Value>=Fields!G_L_Account__No__.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -657,6 +659,7 @@
                             <PaddingRight>4pt</PaddingRight>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -667,7 +670,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Account_Name.Value</Value>
+                                  <Value>=Fields!G_L_Account_Name.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -700,7 +703,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -734,7 +737,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!STRSUBSTNO_Text006_PreviousEndDate_.Value</Value>
+                                  <Value>=Fields!STRSUBSTNO_Text006_PreviousEndDate_.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -757,6 +760,7 @@
                           </Style>
                         </Textbox>
                         <ColSpan>5</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -772,7 +776,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!GLAccount2__Debit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!GLAccount2__Debit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -804,7 +808,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!GLAccount2__Credit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!GLAccount2__Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -836,7 +840,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!GLAccount2__Debit_Amount____GLAccount2__Credit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!GLAccount2__Debit_Amount____GLAccount2__Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -872,7 +876,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!STRSUBSTNO_Text006_EndDate_.Value</Value>
+                                  <Value>=Fields!STRSUBSTNO_Text006_EndDate_.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -895,6 +899,7 @@
                           </Style>
                         </Textbox>
                         <ColSpan>5</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -910,7 +915,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!G_L_Account__G_L_Account___Debit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Account__G_L_Account___Debit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -941,7 +946,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!G_L_Account__G_L_Account___Credit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Account__G_L_Account___Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -972,7 +977,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!G_L_Account___Debit_Amount_____G_L_Account___Credit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Account___Debit_Amount_____G_L_Account___Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1007,7 +1012,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__Posting_Date_.Value</Value>
+                                  <Value>=Fields!G_L_Entry__Posting_Date_.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1041,7 +1046,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__Source_Code_.Value</Value>
+                                  <Value>=Fields!G_L_Entry__Source_Code_.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1074,7 +1079,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__Document_No__.Value</Value>
+                                  <Value>=Fields!G_L_Entry__Document_No__.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1107,7 +1112,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__External_Document_No__.Value</Value>
+                                  <Value>=Fields!G_L_Entry__External_Document_No__.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1138,7 +1143,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry_Description.Value</Value>
+                                  <Value>=Fields!G_L_Entry_Description.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1170,7 +1175,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!G_L_Entry__Debit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Entry__Debit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry__Debit_Amount__Control1120116Format.Value</Format>
@@ -1203,7 +1208,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!G_L_Entry__Credit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Entry__Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry__Credit_Amount__Control1120119Format.Value</Format>
@@ -1239,7 +1244,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Fields!Solde.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!Solde.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!SoldeFormat.Value</Format>
@@ -1275,7 +1280,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__Posting_Date_.Value</Value>
+                                  <Value>=Fields!G_L_Entry__Posting_Date_.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1309,7 +1314,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__Source_Code_.Value</Value>
+                                  <Value>=Fields!G_L_Entry__Source_Code_.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1342,7 +1347,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__Document_No__.Value</Value>
+                                  <Value>=Fields!G_L_Entry__Document_No__.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1375,7 +1380,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry__External_Document_No__.Value</Value>
+                                  <Value>=Fields!G_L_Entry__External_Document_No__.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1406,7 +1411,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!G_L_Entry_Description.Value</Value>
+                                  <Value>=Fields!G_L_Entry_Description.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1438,7 +1443,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(sum(Fields!G_L_Entry__Debit_Amount_.Value))</Value>
+                                  <Value>=Code.BlankZero(sum(Fields!G_L_Entry__Debit_Amount_.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry__Debit_Amount__Control1120116Format.Value</Format>
@@ -1471,7 +1476,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(sum(Fields!G_L_Entry__Credit_Amount_.Value))</Value>
+                                  <Value>=Code.BlankZero(sum(Fields!G_L_Entry__Credit_Amount_.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry__Credit_Amount__Control1120119Format.Value</Format>
@@ -1507,7 +1512,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(last(Fields!Solde.Value))</Value>
+                                  <Value>=Code.BlankZero(last(Fields!Solde.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1543,7 +1548,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Last(Fields!Text008_________FORMAT_Date__Period_Type___________Date__Period_Name_.Value)</Value>
+                                  <Value>=Last(Fields!Text008_________FORMAT_Date__Period_Type___________Date__Period_Name_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1584,7 +1589,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry__Debit_Amount_.Value))</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry__Debit_Amount_.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry__Debit_Amount__Control1120136Format.Value</Format>
@@ -1618,7 +1623,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry__Credit_Amount_.Value))</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry__Credit_Amount_.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry__Credit_Amount__Control1120139Format.Value</Format>
@@ -1652,7 +1657,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Last(Fields!Solde.Value))</Value>
+                                  <Value>=Code.BlankZero(Last(Fields!Solde.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!Solde_Control1120142Format.Value</Format>
@@ -1690,7 +1695,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Last(Fields!Total_Date_RangeCaption.Value)</Value>
+                                  <Value>=Last(Fields!Total_Date_RangeCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1712,6 +1717,7 @@
                           </Style>
                         </Textbox>
                         <ColSpan>5</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -1727,7 +1733,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount__Control1120080.Value))</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount__Control1120080.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry___Debit_Amount__Control1120080Format.Value</Format>
@@ -1758,7 +1764,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry___Credit_Amount__Control1120084.Value))</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry___Credit_Amount__Control1120084.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry___Credit_Amount__Control1120084Format.Value</Format>
@@ -1789,7 +1795,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount_____G_L_Entry___Credit_Amount__Control1120088.Value))</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount_____G_L_Entry___Credit_Amount__Control1120088.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!G_L_Entry___Debit_Amount_____G_L_Entry___Credit_Amount__Control1120088Format.Value</Format>
@@ -1824,7 +1830,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Last(Fields!STRSUBSTNO_Text007_EndDate_.Value)</Value>
+                                  <Value>=Last(Fields!STRSUBSTNO_Text007_EndDate_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1847,6 +1853,7 @@
                           </Style>
                         </Textbox>
                         <ColSpan>5</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -1862,7 +1869,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount__Control1120080.Value) + Fields!GLAccount2__Debit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount__Control1120080.Value) + Fields!GLAccount2__Debit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1894,7 +1901,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry__Credit_Amount_.Value) + Fields!GLAccount2__Credit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry__Credit_Amount_.Value) + Fields!GLAccount2__Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1926,7 +1933,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount_____G_L_Entry___Credit_Amount__Control1120088.Value) + Fields!GLAccount2__Debit_Amount____GLAccount2__Credit_Amount_.Value)</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount_____G_L_Entry___Credit_Amount__Control1120088.Value) + Fields!GLAccount2__Debit_Amount____GLAccount2__Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1962,7 +1969,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2006,7 +2013,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Last(Fields!Grand_TotalCaption.Value)</Value>
+                                  <Value>=Last(Fields!Grand_TotalCaption.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2043,7 +2050,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount__Control1120080.Value))</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry___Debit_Amount__Control1120080.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2074,7 +2081,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Code.BlankZero(Sum(Fields!G_L_Entry___Credit_Amount__Control1120084.Value))</Value>
+                                  <Value>=Code.BlankZero(Sum(Fields!G_L_Entry___Credit_Amount__Control1120084.Value))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2105,7 +2112,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!G_L_Entry__Debit_Amount_.Value) - Sum(Fields!G_L_Entry__Credit_Amount_.Value)</Value>
+                                  <Value>=Sum(Fields!G_L_Entry__Debit_Amount_.Value) - Sum(Fields!G_L_Entry__Credit_Amount_.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2177,7 +2184,6 @@
                       <Group Name="Table1_Group">
                         <GroupExpressions>
                           <GroupExpression>=Fields!G_L_Account__No__.Value</GroupExpression>
-                          <GroupExpression>=Fields!G_L_Account_G_L_Entry_Type_Filter.Value</GroupExpression>
                           <GroupExpression>=Fields!G_L_Account_Global_Dimension_1_Filter.Value</GroupExpression>
                           <GroupExpression>=Fields!G_L_Account_Global_Dimension_2_Filter.Value</GroupExpression>
                         </GroupExpressions>
@@ -2288,8 +2294,8 @@
                 </FilterValues>
               </Filter>
             </Filters>
-            <Height>5.59201cm</Height>
-            <Width>18.05483cm</Width>
+            <Height>5.59202cm</Height>
+            <Width>18.05484cm</Width>
             <Visibility>
               <Hidden>=IIF(Fields!Posting_DateCaption.Value = "",True,False)</Hidden>
             </Visibility>
@@ -2313,7 +2319,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=ReportItems!G_L_Detail_Trial_BalanceCaption.Value</Value>
+                      <Value>=ReportItems!G_L_Detail_Trial_BalanceCaption.Value</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2336,7 +2342,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=ReportItems!STRSUBSTNO_Text004_PreviousStartDate_.Value</Value>
+                      <Value>=ReportItems!STRSUBSTNO_Text004_PreviousStartDate_.Value</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
@@ -2360,7 +2366,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=ReportItems!STRSUBSTNO_Text003_USERID_.Value + User!UserID</Value>
+                      <Value>=ReportItems!STRSUBSTNO_Text003_USERID_.Value + User!UserID</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
@@ -2386,7 +2392,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=ReportItems!COMPANYNAME.Value</Value>
+                      <Value>=ReportItems!COMPANYNAME.Value</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
@@ -2410,7 +2416,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Globals!ExecutionTime</Value>
+                      <Value>=Globals!ExecutionTime</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
@@ -2436,7 +2442,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=ReportItems!PageCaption.Value &amp; Globals!PageNumber</Value>
+                      <Value>=ReportItems!PageCaption.Value &amp; Globals!PageNumber</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>

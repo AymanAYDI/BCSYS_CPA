@@ -78,7 +78,7 @@ report 50030 "Import OD Paie"
                     var
                         Text006: Label 'Importer depuis excel', Comment = 'FRA="Importer depuis excel"';
                         FilterText: Label 'Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*', Comment = 'FRA="Fichiers Excel (*.xlsx)|*.xlsx|Tous les fichiers (*.*)|*.*"';
-                        InStream: InStream;
+                    //InStream: InStream;
                     begin
                         if txtFileName <> '' then
                             UploadIntoStream(Text006, '', '', txtFileName, InStream)
