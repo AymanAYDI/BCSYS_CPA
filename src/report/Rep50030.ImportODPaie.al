@@ -207,29 +207,26 @@ report 50030 "Import OD Paie"
                                     T81.VALIDATE("Posting Date");
                                 end;
                             3:
-
                                 if GLAccount.GET(varCell) then
                                     T81.VALIDATE("Account No.", varCell)
                                 else
                                     if STRPOS(ErrCompte, varCell + ';') = 0 then
                                         ErrCompte := ErrCompte + varCell + ';';
                             4:
-                                begin
-                                    if not DimensionValue.GET(GLSetup."Shortcut Dimension 1 Code", varCell) then
-                                        SectionImp := CopyStr(DELCHR(UPPERCASE(varCell)), 1, MaxStrLen(SectionImp));
-                                    if DimensionValue.FINDFIRST() then begin
+                                if not DimensionValue.GET(GLSetup."Shortcut Dimension 1 Code", varCell) then begin
+                                    SectionImp := DELCHR(UPPERCASE(varCell));
+                                    if DimensionValue.FINDFIRST then begin
                                         repeat
                                             if DELCHR(UPPERCASE(DimensionValue.Name)) = SectionImp then
                                                 Section := DimensionValue.Code;
-                                        until (Section <> '') or (DimensionValue.NEXT() = 0);
-                                        if Section <> '' then
-                                            T81.VALIDATE("Shortcut Dimension 1 Code", Section)
-                                        else
-                                            if STRPOS(ErrSection, varCell + ';') = 0 then
-                                                ErrSection := ErrSection + varCell + ';';
-                                    end else
-                                        T81.VALIDATE("Shortcut Dimension 1 Code", varCell);
-                                end;
+                                        until (Section <> '') or (DimensionValue.NEXT = 0);
+                                    end;
+                                    if Section <> '' then
+                                        T81.VALIDATE("Shortcut Dimension 1 Code", Section)
+                                    else if STRPOS(ErrSection, varCell + ';') = 0 then
+                                        ErrSection := ErrSection + varCell + ';';
+                                end else
+                                    T81.VALIDATE("Shortcut Dimension 1 Code", varCell);
                             5:
 
                                 T81.Description := 'Paie ' + FORMAT(T81."Posting Date", 0, '<Month,2>/<Year4>');
